@@ -10,15 +10,56 @@ import fon.rs.np.RentACarServerMaven.kontroler.Kontroler;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Zahtev;
 
+/**
+ * Klasa predstavlja serversku nit koja obrađuje zahteve klijenta.
+ * 
+ * KlijentskaNit je klasa koja nasleđuje Thread i predstavlja serversku nit
+ * koja se pokreće za svakog klijenta koji se poveže sa serverom. Svaka instanca
+ * ove klase ima svoj socket preko kojeg komunicira sa klijentom.
+ * 
+ * Nit u petlji čeka na pristizanje zahteva od klijenta, obrađuje ih koristeći
+ * odgovarajuće metode iz Kontrolera i šalje odgovor klijentu.
+ * 
+ * @see Kontroler
+ * @see Socket
+ * @see Zahtev
+ * @see Odgovor
+ * @see Thread
+ * 
+ */
+
 public class KlijentskaNit extends Thread {
     
+	/**
+     * Socket koji se koristi za komunikaciju sa klijentom.
+     */
+	
     Socket socket;
+    
+    /**
+     * Promenljiva koja označava da li je nit završena.
+     * Ukoliko je vrednost postavljena na true, nit će se zaustaviti.
+     */
+    
     boolean kraj = false;
 
+    /**
+     * Konstruktor klase KlijentskaNit.
+     * 
+     * @param socket Socket preko kojeg se komunicira sa klijentom
+     */
+    
     public KlijentskaNit(Socket socket) {
         this.socket = socket;
     }
 
+    /**
+     * Metoda koja se izvršava prilikom pokretanja niti.
+     * 
+     * Metoda čeka na pristizanje zahteva od klijenta, obrađuje ih koristeći
+     * odgovarajuće metode iz Kontrolera i šalje odgovor klijentu.
+     */
+    
     @Override
     public void run() {
         while(!kraj) {
@@ -73,6 +114,15 @@ public class KlijentskaNit extends Thread {
         }
     }
 
+    /**
+     * Metoda za primanje zahteva od klijenta.
+     * 
+     * Metoda prima zahtev od klijenta preko ObjectInputStream-a, čita ga i vraća
+     * kao objekat klase Zahtev.
+     * 
+     * @return Zahtev objekat koji predstavlja zahtev klijenta
+     */
+    
     private Zahtev receive() {
         Zahtev zahtev = new Zahtev();
         
@@ -88,6 +138,14 @@ public class KlijentskaNit extends Thread {
         return zahtev;
     }
 
+    /**
+     * Metoda za slanje odgovora klijentu.
+     * 
+     * Metoda šalje odgovor klijentu preko ObjectOutputStream-a.
+     * 
+     * @param odgovor Odgovor objekat koji se šalje klijentu
+     */
+    
     private void send(Odgovor odgovor) {
         try {
             ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
