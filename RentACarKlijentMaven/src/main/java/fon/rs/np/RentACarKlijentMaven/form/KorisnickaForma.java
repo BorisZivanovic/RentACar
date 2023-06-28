@@ -15,16 +15,36 @@ import fon.rs.np.RentACarKlijentMaven.tabele.ModelTabeleKorisnici;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
- *
- * @author neman
+ * Klasa predstavlja korisnički interfejs za rad sa korisnicima u sistemu Rent-a-Car.
+ * Korisnička forma omogućava dodavanje, izmenu, brisanje i pregled korisnika.
+ * Podaci o korisnicima se prikazuju u tabeli, a korisnik može izabrati određenog korisnika za izmenu ili brisanje.
+ * Takođe, korisnik može uneti nove podatke i sačuvati ih kao novog korisnika.
+ * Forma takođe omogućava unos podataka kao što su ime, prezime, JMBG, datum rođenja i mesto prebivališta korisnika.
+ * Podaci se validiraju pre njihovog čuvanja u sistemu.
  */
+
 public class KorisnickaForma extends javax.swing.JDialog {
 
+	/**
+	 * model tabele korisnika
+	 */
     ModelTabeleKorisnici mtk;
+    /**
+     * uslovni datum
+     */
     Date uslovniDatum;
-
+    /**
+     * format u kom se unosi datum
+     */
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
+    /**
+     * Konstruktor klase KorisnickaForma.
+     * 
+     * @param parent Referenca na roditeljski prozor.
+     * @param modal  Flag koji označava da li je forma modalna ili ne.
+     */
+    
     public KorisnickaForma(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -255,6 +275,13 @@ public class KorisnickaForma extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Metoda btnSacuvajActionPerformed se poziva kada se pritisne dugme "Sacuvaj".
+     * Vrši unos novog korisnika u sistem.
+     * 
+     * @param evt Objekat koji predstavlja događaj pritiska na dugme.
+     */
+    
     private void btnSacuvajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacuvajActionPerformed
         if (!proveraValidacije()) {
             Korisnik noviKorisnik = new Korisnik(txtIme.getText(), txtPrezime.getText(),
@@ -277,6 +304,13 @@ public class KorisnickaForma extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Molimo unesite neophodne podatke");
     }//GEN-LAST:event_btnSacuvajActionPerformed
 
+    /**
+     * Metoda tblKorisniciMouseClicked se poziva kada se pritisne na tabelu korisnika.
+     * Prikazuje detalje selektovanog korisnika u poljima dijalog prozora.
+     * 
+     * @param evt Objekat koji predstavlja događaj pritiska na tabelu.
+     */
+    
     private void tblKorisniciMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKorisniciMouseClicked
         if (tblKorisnici.getSelectedRow() != -1) {
             Korisnik k = mtk.vratiKorisnika(tblKorisnici.getSelectedRow());
@@ -289,6 +323,13 @@ public class KorisnickaForma extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_tblKorisniciMouseClicked
 
+    /**
+     * Metoda btnIzbrisiActionPerformed se poziva kada se pritisne dugme "Izbrisi".
+     * Briše selektovanog korisnika iz sistema.
+     * 
+     * @param evt Objekat koji predstavlja događaj pritiska na dugme.
+     */
+    
     private void btnIzbrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzbrisiActionPerformed
         int index = tblKorisnici.getSelectedRow();
         if (index != -1) {
@@ -305,10 +346,24 @@ public class KorisnickaForma extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnIzbrisiActionPerformed
 
+    /**
+     * Metoda btnOcistiActionPerformed se poziva kada se pritisne dugme "Ocisti".
+     * Vrši resetovanje polja dijalog prozora.
+     * 
+     * @param evt Objekat koji predstavlja događaj pritiska na dugme.
+     */
+    
     private void btnOcistiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOcistiActionPerformed
         resetujPolja();
     }//GEN-LAST:event_btnOcistiActionPerformed
 
+    /**
+     * Metoda btnIzmeniActionPerformed se poziva kada se pritisne dugme "Izmeni".
+     * Vrši izmenu selektovanog korisnika u sistemu.
+     * 
+     * @param evt Objekat koji predstavlja događaj pritiska na dugme.
+     */
+    
     private void btnIzmeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzmeniActionPerformed
         if (!proveraValidacije()) {
             Korisnik noviKorisnik = new Korisnik(Long.parseLong(txtID.getText()),
@@ -350,6 +405,10 @@ public class KorisnickaForma extends javax.swing.JDialog {
     private javax.swing.JTextField txtPrezime;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Metoda populate vrši punjenje komponenti dijalog prozora podacima.
+     */
+    
     private void populate() {
         List<Mesto> mesta = Kontroler.getInstance().vratiMesta();
         for (Mesto mesto : mesta) {
@@ -369,12 +428,22 @@ public class KorisnickaForma extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * Metoda proveraValidacije vrši validaciju unetih podataka.
+     * 
+     * @return true ako su podaci ispravni, false inače.
+     */
+    
     private boolean proveraValidacije() {
         return txtIme.getText().equals("")
                 || txtJMBG.getText().equals("") || txtPrezime.getText().equals("")
                 || dateChooser.getDate().after(uslovniDatum);
     }
 
+    /**
+     * Metoda resetujPolja vrši resetovanje polja dijalog prozora.
+     */
+    
     private void resetujPolja() {
         txtID.setText("");
         txtIme.setText("");

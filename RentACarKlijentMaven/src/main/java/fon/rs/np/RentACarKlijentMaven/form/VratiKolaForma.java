@@ -12,10 +12,23 @@ import fon.rs.np.RentACarKlijentMaven.kontroler.Kontroler;
 import fon.rs.np.RentACarKlijentMaven.tabele.ModelTabeleStavkaRacuna;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
-public class VratiKolaForma extends javax.swing.JDialog {
+/**
+ * Klasa predstavlja formu za vraćanje iznajmljenih vozila.
+ */
 
+public class VratiKolaForma extends javax.swing.JDialog {
+	/**
+	 * model tabele stavki racuna
+	 */
     ModelTabeleStavkaRacuna mti;
 
+    /**
+     * Konstruktor klase VratiKolaForma.
+     *
+     * @param parent roditeljski frejm
+     * @param modal  modalnost forme
+     */
+    
     public VratiKolaForma(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -152,18 +165,30 @@ public class VratiKolaForma extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Metoda koja se poziva prilikom klika na dugme "Vrati vozilo".
+     *
+     * @param evt događaj koji je pokrenuo akciju
+     */
+    
     private void btnVratiVoziloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVratiVoziloActionPerformed
-        if (tblIznajmljeni.getSelectedRow() != -1) {
+    	 // Provera da li je selektovana neka stavka iz tabele
+    	if (tblIznajmljeni.getSelectedRow() != -1) {
             System.out.println("Aaa");
+         // Dobijanje selektovane stavke iz tabele
             StavkaRacuna sr = mti.vrati(tblIznajmljeni.getSelectedRow());
             System.out.println(sr.getVozilo().getKategorijaVozila());
+            // Provera da li je datum vraćanja iznajmljivanja pre isteka
             if (sr.getIznajmljivanje().getDatumVracanja().after(Date.valueOf(LocalDate.now()))) {
-                int rez = JOptionPane.showConfirmDialog(this, "Datum je pre isteka, da li ste sigurni da zelite da vratite?");
+            	// Ako je datum pre isteka, prikazuje se dijalog za potvrdu vraćanja vozila
+            	int rez = JOptionPane.showConfirmDialog(this, "Datum je pre isteka, da li ste sigurni da zelite da vratite?");
                 if (rez == JOptionPane.YES_OPTION) {
-                    vratiVozilo(sr);
+                	// Ako korisnik potvrdi vraćanje, poziva se metoda za vraćanje vozila
+                	vratiVozilo(sr);
                     reset();
                 }
             } else {
+            	// Ako je datum istekao, odmah se poziva metoda za vraćanje vozila
                 vratiVozilo(sr);
                 reset();
             }
@@ -171,10 +196,19 @@ public class VratiKolaForma extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Molimo izaberite vozilo koje zelite da vratite");
     }//GEN-LAST:event_btnVratiVoziloActionPerformed
 
+    /**
+     * Metoda koja se poziva prilikom klika na tabelu sa iznajmljenim vozilima.
+     *
+     * @param evt događaj koji je pokrenuo akciju
+     */
+    
     private void tblIznajmljeniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblIznajmljeniMouseClicked
-        if (tblIznajmljeni.getSelectedRow() != -1) {
-            StavkaRacuna sr = mti.vrati(tblIznajmljeni.getSelectedRow());
-            txtRentId.setText("" + sr.getRbStavke());
+    	// Provera da li je selektovana neka stavka iz tabele
+    	if (tblIznajmljeni.getSelectedRow() != -1) {
+    		// Dobijanje selektovane stavke iz tabele
+    		StavkaRacuna sr = mti.vrati(tblIznajmljeni.getSelectedRow());
+    		// Popunjavanje polja sa informacijama o selektovanoj stavki
+    		txtRentId.setText("" + sr.getRbStavke());
             txtRegistracija.setText(sr.getVozilo().getRegistarskiBroj());
             txtKorisnik.setText(sr.getKorisnik().toString());
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");

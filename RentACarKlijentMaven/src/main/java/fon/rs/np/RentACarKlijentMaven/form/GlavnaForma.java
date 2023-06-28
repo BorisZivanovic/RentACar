@@ -19,10 +19,33 @@ import fon.rs.np.RentACarKlijentMaven.tabele.ModelTabeleVozila;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Zahtev;
 
+/**
+ * Glavna forma aplikacije "Rent-a-car".
+ * Ova klasa predstavlja glavni prozor aplikacije i omogućava korisniku interakciju sa funkcionalnostima sistema.
+ * Korisnik može pregledati dostupna vozila, iznajmiti vozilo, vratiti iznajmljeno vozilo, dodavati, izmenjivati i brisati vozila iz sistema.
+ * Takođe, korisnik može pregledati informacije o korisniku koji je trenutno prijavljen.
+ */
+
 public class GlavnaForma extends javax.swing.JFrame {
 
+	/**
+	 * Model tabele za vozila
+	 */
+	
     ModelTabeleVozila mtv;
 
+    /**
+     * Konstruktor klase GlavnaForma.
+     * Inicijalizuje komponente forme.
+     * Podešava referencu na GlavnaForma objekat u Kontroleru.
+     * Postavlja veličinu i poziciju forme.
+     * Onemogućava unos teksta u polje txtID.
+     * Vrši inicijalno podešavanje forme pozivom metode srediFormu().
+     * Dodaje WindowListener da bi se izvršila akcija pri zatvaranju prozora.
+     * Pri zatvaranju prozora šalje zahtev za izlogovanje na server.
+     * @throws Exception ukoliko se desi greška prilikom slanja zahteva za izlogovanje.
+     */
+    
     public GlavnaForma() {
         initComponents();
         Kontroler.getInstance().setGf(this);
@@ -308,6 +331,15 @@ public class GlavnaForma extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Ova metoda se poziva kada korisnik pritisne dugme "Sacuvaj".
+     * Proverava validaciju unetih podataka. Ako validacija nije prošla, prikazuje se poruka o greški.
+     * Kreira novi objekat tipa Vozilo sa unetim podacima.
+     * Poziva metodu sacuvajVozilo() iz klase Kontroler za čuvanje vozila.
+     * Ako čuvanje vozila uspešno, dodaje novo vozilo u mtv (model ili prikaz) i resetuje polja za unos.
+     * @param evt Objekat koji predstavlja događaj klika na dugme.
+     */
+    
     private void btnSacuvajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacuvajActionPerformed
         if (proveraValidacije()) {
             JOptionPane.showMessageDialog(this, "Molimo unesite marku i model automobila");
@@ -323,6 +355,16 @@ public class GlavnaForma extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSacuvajActionPerformed
 
+    /**
+     * Ova metoda se poziva kada korisnik pritisne dugme "Izbrisi".
+     * Proverava da li je izabrano vozilo u tabeli.
+     * Ako nije izabrano vozilo, prikazuje se poruka o greški.
+     * Inače, dobavlja izabranu vrstu vozila iz mtv (model ili prikaz).
+     * Poziva metodu izbrisiVozilo() iz klase Kontroler za brisanje vozila.
+     * Ako brisanje vozila uspešno, uklanja vozilo iz mtv (model ili prikaz) i resetuje polja za unos.
+     * @param evt Objekat koji predstavlja događaj klika na dugme.
+     */
+    
     private void btnIzbrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzbrisiActionPerformed
         if (tblVozila.getSelectedRow() == -1)
             JOptionPane.showMessageDialog(this, "Molimo izaberite zeljeno vozilo");
@@ -335,22 +377,56 @@ public class GlavnaForma extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnIzbrisiActionPerformed
 
+    /**
+     * Ova metoda se poziva kada korisnik pritisne dugme "Korisnik".
+     * Kreira i prikazuje novu instancu klase KorisnickaForma.
+     * @param evt Objekat koji predstavlja događaj klika na dugme.
+     */
+    
     private void btnKorisnikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKorisnikActionPerformed
         (new KorisnickaForma(this, false)).setVisible(true);
     }//GEN-LAST:event_btnKorisnikActionPerformed
 
+    /**
+     * Ova metoda se poziva kada korisnik pritisne dugme "Iznajmi".
+     * Kreira i prikazuje novu instancu klase IznajmljivanjeForma.
+     * @param evt Objekat koji predstavlja događaj klika na dugme.
+     */
+    
     private void btnIznajmiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIznajmiActionPerformed
         (new IznajmljivanjeForma(this, false)).setVisible(true);
     }//GEN-LAST:event_btnIznajmiActionPerformed
 
+    /**
+     * Ova metoda se poziva kada korisnik pritisne dugme "Ocisti".
+     * Resetuje polja za unos na početne vrednosti.
+     * @param evt Objekat koji predstavlja događaj klika na dugme.
+     */
+    
     private void btnOcistiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOcistiActionPerformed
         reset();
     }//GEN-LAST:event_btnOcistiActionPerformed
 
+    /**
+     * Ova metoda se poziva kada korisnik pritisne dugme "Vrati Kola".
+     * Kreira i prikazuje novu instancu klase VratiKolaForma.
+     * @param evt Objekat koji predstavlja događaj klika na dugme.
+     */
+    
     private void btnVratiKolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVratiKolaActionPerformed
         (new VratiKolaForma(this, false)).setVisible(true);
     }//GEN-LAST:event_btnVratiKolaActionPerformed
 
+    /**
+     * Ova metoda se poziva kada korisnik pritisne dugme "Izmeni".
+     * Proverava da li je izabrano vozilo u tabeli.
+     * Ako je izabrano vozilo, dobavlja vrednosti polja za unos i kreira novu instancu Vozilo sa tim vrednostima.
+     * Poziva metodu izmeniVozilo() iz klase Kontroler za izmenu vozila.
+     * Ako izmena vozila uspešna, prikazuje se odgovarajuća poruka, ažurira se vozilo u mtv (model ili prikaz) i resetuju polja za unos.
+     * U suprotnom, prikazuje se poruka o grešci.
+     * @param evt Objekat koji predstavlja događaj klika na dugme.
+     */
+    
     private void btnIzmeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzmeniActionPerformed
         if (tblVozila.getSelectedRow() != -1) {
             Vozilo novo = new Vozilo(Long.parseLong(txtID.getText()),
@@ -371,6 +447,13 @@ public class GlavnaForma extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Molimo izaberite neko vozilo");
     }//GEN-LAST:event_btnIzmeniActionPerformed
 
+    /**
+     * Ova metoda se poziva kada korisnik izvrši klik na tabelu vozila.
+     * Proverava da li je izabrano vozilo u tabeli.
+     * Ako je izabrano vozilo, uzima vrednosti atributa iz objekta Vozilo i postavlja ih u odgovarajuća polja za unos.
+     * @param evt Objekat koji predstavlja događaj klika na tabelu.
+     */
+    
     private void tblVozilaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVozilaMouseClicked
         if(tblVozila.getSelectedRow() != -1) {
             Vozilo v = mtv.vratiVozilo(tblVozila.getSelectedRow());
@@ -445,11 +528,23 @@ public class GlavnaForma extends javax.swing.JFrame {
     private javax.swing.JTextField txtRegistarskiBroj;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Vrši validaciju unosa polja za registracioni broj, marku i model vozila.
+     * @return true ako je validacija neuspešna (jedno od polja je prazno), false ako je validacija uspešna.
+     */
+    
     private boolean proveraValidacije() {
         return txtRegistarskiBroj.getText().equals("")
                 || txtMarka.getText().equals("") || txtModel.getText().equals("");
     }
 
+    /**
+     * Vrši inicijalno podešavanje forme.
+     * Dodaje stavke statusa vozila (SLOBODNO i ZAUZETO) u ComboBox cbStatus.
+     * Prikazuje dostupne kategorije vozila iz sistema u ComboBox cbKategorija.
+     * Prikazuje vozila u tabeli tblVozila kroz instancu ModelTabeleVozila.
+     */
+    
     private void srediFormu() {
 
         cbStatus.addItem(StatusVozila.SLOBODNO);
@@ -466,6 +561,10 @@ public class GlavnaForma extends javax.swing.JFrame {
         tblVozila.setModel(mtv);
     }
 
+    /**
+     * Resetuje polja za unos na formi tako što postavlja prazne vrednosti u njih.
+     */
+    
     private void reset() {
         txtID.setText("");
         txtRegistarskiBroj.setText("");
@@ -473,10 +572,20 @@ public class GlavnaForma extends javax.swing.JFrame {
         txtModel.setText("");
     }
 
+    /**
+     * Ažurira prikaz tabele vozila nakon izvršenog iznajmljivanja vozila.
+     * @param vozilo Vozilo koje je iznajmljeno i treba ažurirati prikaz u tabeli.
+     */
+    
     public void azuriraj(Vozilo vozilo) {
         mtv.iznajmi(vozilo);
     }
 
+    /**
+     * Ažurira prikaz tabele vozila nakon vraćanja iznajmljenog vozila.
+     * @param vozilo Vozilo koje je vraćeno i treba ažurirati prikaz u tabeli.
+     */
+    
     public void azurirajVrati(Vozilo vozilo) {
         mtv.vratiIznajmljeno(vozilo);
     }

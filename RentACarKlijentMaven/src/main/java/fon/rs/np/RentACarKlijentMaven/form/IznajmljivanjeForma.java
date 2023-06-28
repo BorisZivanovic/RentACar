@@ -18,13 +18,36 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
+/**
+ * Klasa predstavlja formu za iznajmljivanje vozila.
+ */
+
 public class IznajmljivanjeForma extends javax.swing.JDialog {
 
+	/**
+	 * decimalne vrednosti za ukupno,paket,iznos,total koji su po defaultu 0
+	 */
     double ukupno = 0, paket = 0, iznos = 0, total = 0;
+    /**
+     * lista stavki cenovnika
+     */
     List<StavkaCenovnika> stavke;
+    /**
+     * model tabele vozila
+     */
     ModelTabeleVozila mtv;
+    /**
+     * model tabele stavki racuna
+     */
     ModelTabeleStavkaRacuna mti;
 
+    /**
+     * Konstruktor koji inicijalizuje formu za iznajmljivanje.
+     * 
+     * @param parent  roditeljski prozor
+     * @param modal   modalnost prozora
+     */
+    
     public IznajmljivanjeForma(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -361,6 +384,12 @@ public class IznajmljivanjeForma extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Metoda koja se poziva kada korisnik izabere stavku u tabeli iznajmljenih vozila.
+     * 
+     * @param evt  događaj klika mišem
+     */
+    
     private void tblIznajmiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblIznajmiMouseClicked
         if (tblIznajmi.getSelectedRow() != -1) {
             ukupno -= iznos;
@@ -376,6 +405,12 @@ public class IznajmljivanjeForma extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_tblIznajmiMouseClicked
 
+    /**
+     * Metoda koja se poziva kada korisnik pritisne dugme "Iznajmi".
+     * 
+     * @param evt  događaj klika mišem
+     */
+    
     private void btnIznajmiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIznajmiActionPerformed
         if (((ModelTabeleStavkaRacuna) tblZaIznajmljivanje.getModel()).getIznajmljeno().size() == 0)
             JOptionPane.showMessageDialog(this, "Molimo izaberite vozilo za izdavanje");
@@ -398,6 +433,12 @@ public class IznajmljivanjeForma extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnIznajmiActionPerformed
 
+    /**
+     * Metoda koja se poziva kada korisnik izabere stavku u padajućem meniju kategorija.
+     * 
+     * @param evt  događaj promene izbora
+     */
+    
     private void cbKategorijeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbKategorijeItemStateChanged
         ukupno -= paket;
 
@@ -408,6 +449,12 @@ public class IznajmljivanjeForma extends javax.swing.JDialog {
         txtUkupno.setText("" + ukupno);
     }//GEN-LAST:event_cbKategorijeItemStateChanged
 
+    /**
+     * Metoda koja se poziva kada korisnik pritisne dugme "Izbaci".
+     * 
+     * @param evt  događaj klika mišem
+     */
+    
     private void btnIzbaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzbaciActionPerformed
         if (tblZaIznajmljivanje.getSelectedRow() != -1) {
             StavkaRacuna izbaci = ((ModelTabeleStavkaRacuna) tblZaIznajmljivanje.getModel()).vrati(tblZaIznajmljivanje.getSelectedRow());
@@ -421,6 +468,12 @@ public class IznajmljivanjeForma extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Niste izabrali");
     }//GEN-LAST:event_btnIzbaciActionPerformed
 
+    /**
+     * Metoda koja se poziva kada korisnik pritisne dugme "Dodaj".
+     * 
+     * @param evt  događaj klika mišem
+     */
+    
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
         if (!txtRegistracija.getText().equals("") && dateIzdato.getDate() != null && dateVracanje.getDate() != null
                 && dateIzdato.getDate().before(dateVracanje.getDate())) {
@@ -477,6 +530,10 @@ public class IznajmljivanjeForma extends javax.swing.JDialog {
     private javax.swing.JTextField txtUkupno;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Metoda koja popunjava formu podacima.
+     */
+    
     private void populate() {
         List<Korisnik> korisnici = Kontroler.getInstance().vratiKorisnike();
         for (Korisnik k : korisnici) {
@@ -499,6 +556,10 @@ public class IznajmljivanjeForma extends javax.swing.JDialog {
         tblZaIznajmljivanje.setModel(new ModelTabeleStavkaRacuna(new ArrayList<StavkaRacuna>()));
     }
 
+    /**
+     * Metoda za resetovanje polja forme na početne vrednosti.
+     */
+    
     private void reset() {
         txtRegistracija.setText("");
         txtIznosPaketa.setText("");
@@ -508,6 +569,13 @@ public class IznajmljivanjeForma extends javax.swing.JDialog {
         dateVracanje.setDate(null);
     }
 
+    /**
+     * Metoda koja vraća listu stavki računa za iznajmljivanje vozila.
+     * 
+     * @param korisnik  korisnik koji iznajmljuje vozila
+     * @return          lista stavki računa
+     */
+    
     private List<StavkaRacuna> listaStavki(Korisnik korisnik) {
         List<StavkaRacuna> lista = ((ModelTabeleStavkaRacuna) tblZaIznajmljivanje.getModel()).getIznajmljeno();
 
@@ -520,6 +588,12 @@ public class IznajmljivanjeForma extends javax.swing.JDialog {
         return lista;
     }
 
+    /**
+     * Metoda koja računa razliku u danima između datuma izdavanja i datuma vraćanja.
+     * 
+     * @return  razlika u danima
+     */
+    
     private int razlikaUDatumima() {
         LocalDate izdato = dateIzdato.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate vracanje = dateVracanje.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
