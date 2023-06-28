@@ -10,10 +10,27 @@ import javax.swing.JOptionPane;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Zahtev;
 
+/**
+ * Klasa Komunikacija omogućava komunikaciju sa serverom putem soketa.
+ * Implementira Singleton obrazac dizajna kako bi se obezbedila samo jedna instanca klase za celu aplikaciju.
+ */
+
 public class Komunikacija {
     
+	/**
+	 * instanca klase Komunikacija
+	 */
     private static Komunikacija instance;
+    /**
+     * socket za komunikaciju
+     */
     Socket socket;
+    
+    /**
+     * Konstruktor klase Komunikacija.
+     * Inicijalizuje socket i povezuje se sa serverom na zadatoj adresi i portu.
+     * U slučaju da server nije pokrenut, prikazuje se odgovarajuća poruka korisniku.
+     */
     
     private Komunikacija() {
         try {
@@ -24,11 +41,23 @@ public class Komunikacija {
         }
     }
     
+    /**
+     * Vraća instancu klase Komunikacija.
+     *
+     * @return instanca klase Komunikacija
+     */
+    
     public static Komunikacija getInstance() {
         if(instance == null)
             instance = new Komunikacija();
         return instance;
     }
+    
+    /**
+     * Šalje zahtev serveru.
+     *
+     * @param zahtev zahtev koji se šalje serveru
+     */
     
     public void posaljiZahtev(Zahtev zahtev) {
         try {
@@ -38,6 +67,12 @@ public class Komunikacija {
             Logger.getLogger(Komunikacija.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    /**
+     * Čeka i prima odgovor od servera.
+     *
+     * @return odgovor od servera
+     */
     
     public Odgovor primiOdgovor() {
         try {
