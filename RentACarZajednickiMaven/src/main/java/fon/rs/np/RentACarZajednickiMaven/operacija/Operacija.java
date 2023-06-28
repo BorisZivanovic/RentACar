@@ -1,0 +1,23 @@
+package fon.rs.np.RentACarZajednickiMaven.operacija;
+
+public enum Operacija {
+    
+    VRATI_MESTA,
+    SAČUVAJ_MESTO,
+    IZMENI_MESTO,
+    IZBRISI_MESTO,
+    SACUVAJ_KORISNIKA,
+    VRATI_KORISNIKE,
+    IZMENI_KORISNIKA,
+    IZBRISI_KORISNIKA,
+    SACUVAJ_VOZILO,
+    VRATI_VOZILA,
+    IZBRISI_VOZILO,
+    IZMENI_VOZILO,
+    VRATI_KATEGORIJE_VOZILA,
+    VRATI_CENOVNIKE,
+    IZNAJMI,
+    VRATI_IZNAJMLJENE,
+    IZLOGUJ
+    
+}
