@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Predstavlja stavku cenovnika.
+ */
+
 public class StavkaCenovnika extends OpstiObjekat {
     
     private Long id;
@@ -15,6 +19,16 @@ public class StavkaCenovnika extends OpstiObjekat {
     private double cena;
     private Cenovnik cenovnik;
 
+    /**
+     * Konstruktor sa svim parametrima.
+     *
+     * @param id        ID stavke cenovnika
+     * @param naziv     naziv stavke cenovnika
+     * @param opis      opis stavke cenovnika
+     * @param cena      cena stavke cenovnika
+     * @param cenovnik  cenovnik kojem stavka pripada
+     */
+    
     public StavkaCenovnika(Long id, String naziv, String opis, double cena, Cenovnik cenovnik) {
         this.id = id;
         this.naziv = naziv;
@@ -23,11 +37,23 @@ public class StavkaCenovnika extends OpstiObjekat {
         this.cenovnik = cenovnik;
     }
     
+    /**
+     * Konstruktor sa nazivom, cenom i cenovnikom.
+     *
+     * @param naziv     naziv stavke cenovnika
+     * @param cena      cena stavke cenovnika
+     * @param cenovnik  cenovnik kojem stavka pripada
+     */
+    
     public StavkaCenovnika(String naziv, double cena, Cenovnik cenovnik) {
         this.naziv = naziv;
         this.cena = cena;
         this.cenovnik = cenovnik;
     }
+    
+    /**
+     * Prazan konstruktor.
+     */
     
     public StavkaCenovnika() {
     }
@@ -37,42 +63,102 @@ public class StavkaCenovnika extends OpstiObjekat {
         return getCenovnik().getNaziv() + " - " + getNaziv();
     }
     
+    /**
+     * Vraća ID stavke cenovnika.
+     *
+     * @return ID stavke cenovnika
+     */
+    
     public Long getId() {
         return id;
     }
 
+    /**
+     * Postavlja ID stavke cenovnika.
+     *
+     * @param id ID stavke cenovnika
+     */
+    
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Vraća naziv stavke cenovnika.
+     *
+     * @return naziv stavke cenovnika
+     */
+    
     public String getNaziv() {
         return naziv;
     }
 
+    /**
+     * Postavlja naziv stavke cenovnika.
+     *
+     * @param naziv naziv stavke cenovnika
+     */
+    
     public void setNaziv(String naziv) {
         this.naziv = naziv;
     }
 
+    /**
+     * Vraća opis stavke cenovnika.
+     *
+     * @return opis stavke cenovnika
+     */
+    
     public String getOpis() {
         return opis;
     }
 
+    /**
+     * Postavlja opis stavke cenovnika.
+     *
+     * @param opis opis stavke cenovnika
+     */
+    
     public void setOpis(String opis) {
         this.opis = opis;
     }
 
+    /**
+     * Vraća cenu stavke cenovnika.
+     *
+     * @return cena stavke cenovnika
+     */
+    
     public double getCena() {
         return cena;
     }
 
+    /**
+     * Postavlja cenu stavke cenovnika.
+     *
+     * @param cena cena stavke cenovnika
+     */
+    
     public void setCena(double cena) {
         this.cena = cena;
     }
 
+    /**
+     * Vraća cenovnik kojem stavka pripada.
+     *
+     * @return cenovnik kojem stavka pripada
+     */
+    
     public Cenovnik getCenovnik() {
         return cenovnik;
     }
 
+    /**
+     * Postavlja cenovnik kojem stavka pripada.
+     *
+     * @param cenovnik cenovnik kojem stavka pripada
+     */
+    
     public void setCenovnik(Cenovnik cenovnik) {
         this.cenovnik = cenovnik;
     }

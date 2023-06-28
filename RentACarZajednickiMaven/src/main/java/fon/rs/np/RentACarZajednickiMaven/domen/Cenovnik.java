@@ -7,12 +7,24 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Cenovnik extends OpstiObjekat {
+/**
+ * Predstavlja objekat cenovnika.
+ */
 
+public class Cenovnik extends OpstiObjekat {
+	
     private Long id;
     private String naziv;
     private String opis;
 
+    /**
+     * Konstruktor koji inicijalizuje objekat cenovnika sa prosleđenim identifikatorom, nazivom i opisom.
+     *
+     * @param id      identifikator cenovnika
+     * @param naziv   naziv cenovnika
+     * @param opis    opis cenovnika
+     */
+    
     public Cenovnik(Long id, String naziv, String opis) {
         this.id = id;
         this.naziv = naziv;
@@ -24,29 +36,69 @@ public class Cenovnik extends OpstiObjekat {
         return getNaziv();
     }
     
+    /**
+     * Prazan konstruktor koji inicijalizuje objekat cenovnika sa podrazumevanim vrednostima.
+     */
+    
     public Cenovnik() {
     }
 
+    /**
+     * Vraća identifikator cenovnika.
+     *
+     * @return identifikator cenovnika
+     */
+    
     public Long getId() {
         return id;
     }
 
+    /**
+     * Postavlja identifikator cenovnika.
+     *
+     * @param id identifikator cenovnika
+     */
+    
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Vraća naziv cenovnika.
+     *
+     * @return naziv cenovnika
+     */
+    
     public String getNaziv() {
         return naziv;
     }
 
+    /**
+     * Postavlja naziv cenovnika.
+     *
+     * @param naziv naziv cenovnika
+     */
+    
     public void setNaziv(String naziv) {
         this.naziv = naziv;
     }
 
+    /**
+     * Vraća opis cenovnika.
+     *
+     * @return opis cenovnika
+     */
+    
     public String getOpis() {
         return opis;
     }
 
+    /**
+     * Postavlja opis cenovnika.
+     *
+     * @param opis opis cenovnika
+     */
+    
     public void setOpis(String opis) {
         this.opis = opis;
     }

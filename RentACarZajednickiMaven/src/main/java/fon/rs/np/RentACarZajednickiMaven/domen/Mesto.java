@@ -8,19 +8,40 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Klasa koja predstavlja entitet Mesto.
+ */
+
 public class Mesto extends OpstiObjekat {
     
     private Long id;
     private String naziv;
 
+    /**
+     * Konstruktor koji inicijalizuje objekat klase Mesto sa zadatim id-om i nazivom.
+     *
+     * @param id    identifikacioni broj mesta
+     * @param naziv naziv mesta
+     */
+    
     public Mesto(Long id, String naziv) {
         this.id = id;
         this.naziv = naziv;
     }
 
+    /**
+     * Prazan konstruktor koji inicijalizuje objekat klase Mesto.
+     */
+    
     public Mesto() {
     }
 
+    /**
+     * Vraća naziv mesta.
+     *
+     * @return naziv mesta
+     */
+    
     @Override
     public int hashCode() {
         int hash = 5;
@@ -48,18 +69,43 @@ public class Mesto extends OpstiObjekat {
         return getNaziv();
     }
     
+    /**
+     * Vraća identifikacioni broj mesta.
+     *
+     * @return identifikacioni broj mesta
+     */
+    
     public Long getId() {
         return id;
     }
 
+    /**
+     * Postavlja identifikacioni broj mesta.
+     *
+     * @param id identifikacioni broj mesta
+     */
+
+    
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Vraća naziv mesta.
+     *
+     * @return naziv mesta
+     */
+    
     public String getNaziv() {
         return naziv;
     }
 
+    /**
+     * Postavlja naziv mesta.
+     *
+     * @param naziv naziv mesta
+     */
+    
     public void setNaziv(String naziv) {
         this.naziv = naziv;
     }

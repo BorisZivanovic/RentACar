@@ -8,6 +8,10 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Predstavlja vozilo.
+ */
+
 public class Vozilo extends OpstiObjekat {
 
     private Long id;
@@ -17,6 +21,17 @@ public class Vozilo extends OpstiObjekat {
     private StatusVozila statusVozila;
     private KategorijaVozila kategorijaVozila;
 
+    /**
+     * Konstruiše novi objekat klase Vozilo sa datim parametrima.
+     *
+     * @param id               identifikator vozila
+     * @param registarskiBroj  registarski broj vozila
+     * @param marka            marka vozila
+     * @param model            model vozila
+     * @param statusVozila     status vozila
+     * @param kategorijaVozila kategorija vozila
+     */
+    
     public Vozilo(Long id, String registarskiBroj, String marka, String model, StatusVozila statusVozila, KategorijaVozila kategorijaVozila) {
         this.id = id;
         this.registarskiBroj = registarskiBroj;
@@ -26,6 +41,16 @@ public class Vozilo extends OpstiObjekat {
         this.kategorijaVozila = kategorijaVozila;
     }
 
+    /**
+     * Konstruiše novo vozilo sa datim parametrima.
+     *
+     * @param registarskiBroj  registarski broj vozila
+     * @param marka            marka vozila
+     * @param model            model vozila
+     * @param statusVozila     status vozila
+     * @param kategorijaVozila kategorija vozila
+     */
+    
     public Vozilo(String registarskiBroj, String marka, String model, StatusVozila statusVozila, KategorijaVozila kategorijaVozila) {
         this.registarskiBroj = registarskiBroj;
         this.marka = marka;
@@ -34,6 +59,16 @@ public class Vozilo extends OpstiObjekat {
         this.kategorijaVozila = kategorijaVozila;
     }
     
+    /**
+     * Konstruiše novo vozilo sa datim parametrima.
+     *
+     * @param id               identifikator vozila
+     * @param registarskiBroj  registarski broj vozila
+     * @param marka            marka vozila
+     * @param model            model vozila
+     * @param kategorijaVozila kategorija vozila
+     */
+    
     public Vozilo(Long id, String registarskiBroj, String marka, String model, KategorijaVozila kategorijaVozila) {
         this.id = id;
         this.registarskiBroj = registarskiBroj;
@@ -41,6 +76,12 @@ public class Vozilo extends OpstiObjekat {
         this.model = model;
         this.kategorijaVozila = kategorijaVozila;
     }
+    
+    /**
+     * Konstruiše novo vozilo sa zadatim registarskim brojem.
+     *
+     * @param registarskiBroj registarski broj vozila
+     */
     
     public Vozilo(String registarskiBroj) {
         this.registarskiBroj = registarskiBroj;
@@ -73,53 +114,129 @@ public class Vozilo extends OpstiObjekat {
         return Objects.equals(this.registarskiBroj, other.registarskiBroj);
     }
     
+    /**
+     * Prazan konstruktor
+     */
+    
     public Vozilo() {
     }
 
+    /**
+     * Vraća ID vozila.
+     *
+     * @return ID vozila
+     */
+    
     public Long getId() {
         return id;
     }
 
+    /**
+     * Postavlja ID vozila.
+     *
+     * @param id ID vozila
+     */
+    
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Vraća marku vozila.
+     *
+     * @return marka vozila
+     */
+    
     public String getMarka() {
         return marka;
     }
 
+    /**
+     * Postavlja marku vozila.
+     *
+     * @param marka marka vozila
+     */
+    
     public void setMarka(String marka) {
         this.marka = marka;
     }
 
+    /**
+     * Vraća model vozila.
+     *
+     * @return model vozila
+     */
+    
     public String getModel() {
         return model;
     }
 
+    /**
+     * Postavlja model vozila.
+     *
+     * @param model model vozila
+     */
+    
     public void setModel(String model) {
         this.model = model;
     }
 
+    /**
+     * Vraća status vozila.
+     *
+     * @return status vozila
+     */
+    
     public StatusVozila getStatusVozila() {
         return statusVozila;
     }
 
+    /**
+     * Postavlja status vozila.
+     *
+     * @param statusVozila status vozila
+     */
+    
     public void setStatusVozila(StatusVozila statusVozila) {
         this.statusVozila = statusVozila;
     }
 
+    /**
+     * Vraća kategoriju vozila.
+     *
+     * @return kategorija vozila
+     */
+    
     public KategorijaVozila getKategorijaVozila() {
         return kategorijaVozila;
     }
 
+    /**
+     * Postavlja kategoriju vozila.
+     *
+     * @param kategorijaVozila kategorija vozila
+     */
+    
     public void setKategorijaVozila(KategorijaVozila kategorijaVozila) {
         this.kategorijaVozila = kategorijaVozila;
     }
 
+    /**
+     * Vraća registarski broj vozila.
+     *
+     * @return registarski broj vozila
+     */
+    
     public String getRegistarskiBroj() {
         return registarskiBroj;
     }
 
+    /**
+     * Postavlja registarski broj vozila.
+     *
+     * @param registarskiBroj registarski broj vozila
+     */
+    
     public void setRegistarskiBroj(String registarskiBroj) {
         this.registarskiBroj = registarskiBroj;
     }

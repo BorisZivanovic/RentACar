@@ -10,6 +10,11 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Predstavlja entitet "Korisnik" koji ima informacije o korisniku sistema.
+ * Nasleđuje apstraktnu klasu OpstiObjekat.
+ */
+
 public class Korisnik extends OpstiObjekat {
 
     private Long id;
@@ -19,6 +24,17 @@ public class Korisnik extends OpstiObjekat {
     private Date datumRodjenja;
     private Mesto mesto;
 
+    /**
+     * Konstruktor koji inicijalizuje objekat klase Korisnik sa svim atributima.
+     *
+     * @param id             identifikacioni broj korisnika
+     * @param ime            ime korisnika
+     * @param prezime        prezime korisnika
+     * @param JMBG           JMBG (Jedinstveni matični broj građana) korisnika
+     * @param datumRodjenja  datum rođenja korisnika
+     * @param mesto          mesto prebivališta korisnika
+     */
+    
     public Korisnik(Long id, String ime, String prezime, Long JMBG, Date datumRodjenja, Mesto mesto) {
         this.id = id;
         this.ime = ime;
@@ -28,6 +44,17 @@ public class Korisnik extends OpstiObjekat {
         this.mesto = mesto;
     }
 
+    /**
+     * Konstruktor koji inicijalizuje objekat klase Korisnik sa svim atributima,
+     * osim identifikacionog broja.
+     *
+     * @param ime            ime korisnika
+     * @param prezime        prezime korisnika
+     * @param JMBG           JMBG (Jedinstveni matični broj građana) korisnika
+     * @param datumRodjenja  datum rođenja korisnika
+     * @param mesto          mesto prebivališta korisnika
+     */
+    
     public Korisnik(String ime, String prezime, Long JMBG, Date datumRodjenja, Mesto mesto) {
         this.ime = ime;
         this.prezime = prezime;
@@ -36,16 +63,36 @@ public class Korisnik extends OpstiObjekat {
         this.mesto = mesto;
     }
     
+    /**
+     * Konstruktor koji inicijalizuje objekat klase Korisnik samo sa identifikacionim
+     * brojem, imenom i prezimenom korisnika.
+     *
+     * @param id      identifikacioni broj korisnika
+     * @param ime     ime korisnika
+     * @param prezime prezime korisnika
+     */
+    
     public Korisnik(Long id ,String ime, String prezime) {
         this.id = id;
         this.ime = ime;
         this.prezime = prezime;
     }
     
+    /**
+     * Konstruktor koji inicijalizuje objekat klase Korisnik samo sa imenom i prezimenom korisnika.
+     *
+     * @param ime     ime korisnika
+     * @param prezime prezime korisnika
+     */
+    
     public Korisnik(String ime, String prezime) {
         this.ime = ime;
         this.prezime = prezime;
     }
+    
+    /**
+     * Prazan konstruktor koji inicijalizuje objekat klase Korisnik.
+     */
     
     public Korisnik() {
     }
@@ -77,50 +124,123 @@ public class Korisnik extends OpstiObjekat {
         return Objects.equals(this.JMBG, other.JMBG);
     }
     
+    /**
+     * Vraća identifikacioni broj korisnika.
+     *
+     * @return identifikacioni broj korisnika
+     */
+    
     public Long getId() {
         return id;
     }
 
+    /**
+     * Postavlja identifikacioni broj korisnika.
+     *
+     * @param id identifikacioni broj korisnika
+     */
+    
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Vraća ime korisnika.
+     *
+     * @return ime korisnika
+     */
+    
     public String getIme() {
         return ime;
     }
 
+    /**
+     * Postavlja ime korisnika.
+     *
+     * @param ime ime korisnika
+     */
+    
     public void setIme(String ime) {
         this.ime = ime;
     }
 
+    
+    /**
+     * Vraća prezime korisnika.
+     *
+     * @return prezime korisnika
+     */
+    
     public String getPrezime() {
         return prezime;
     }
 
+    /**
+     * Postavlja prezime korisnika.
+     *
+     * @param prezime prezime korisnika
+     */
+    
     public void setPrezime(String prezime) {
         this.prezime = prezime;
     }
 
+    /**
+     * Vraća JMBG (Jedinstveni matični broj građana) korisnika.
+     *
+     * @return JMBG korisnika
+     */
+    
     public Long getJMBG() {
         return JMBG;
     }
 
+    /**
+     * Postavlja JMBG (Jedinstveni matični broj građana) korisnika.
+     *
+     * @param JMBG JMBG korisnika
+     */
+    
     public void setJMBG(Long JMBG) {
         this.JMBG = JMBG;
     }
 
+    /**
+     * Vraća datum rođenja korisnika.
+     *
+     * @return datum rođenja korisnika
+     */
+    
     public Date getDatumRodjenja() { //yyyy-MM-dd"
         return datumRodjenja;
     }
 
+    /**
+     * Postavlja datum rođenja korisnika.
+     *
+     * @param datumRodjenja datum rođenja korisnika
+     */
+    
     public void setDatumRodjenja(Date datumRodjenja) {
         this.datumRodjenja = datumRodjenja;
     }
 
+    /**
+     * Vraća mesto prebivališta korisnika.
+     *
+     * @return mesto prebivališta korisnika
+     */
+    
     public Mesto getMesto() {
         return mesto;
     }
 
+    /**
+     * Postavlja mesto prebivališta korisnika.
+     *
+     * @param mesto mesto prebivališta korisnika
+     */
+    
     public void setMesto(Mesto mesto) {
         this.mesto = mesto;
     }

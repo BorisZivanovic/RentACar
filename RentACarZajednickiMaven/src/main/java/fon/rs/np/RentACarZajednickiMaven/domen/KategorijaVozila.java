@@ -8,25 +8,53 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Klasa predstavlja kategoriju vozila.
+ */
+
 public class KategorijaVozila extends OpstiObjekat {
 
     private Long id;
     private String naziv;
     private double cena;
 
+    /**
+     * Konstruktor koji inicijalizuje objekat sa prosleđenim identifikatorom, nazivom i cenom.
+     * 
+     * @param id identifikator kategorije vozila
+     * @param naziv naziv kategorije vozila
+     * @param cena cena kategorije vozila
+     */
+    
     public KategorijaVozila(Long id, String naziv, double cena) {
         this.id = id;
         this.naziv = naziv;
         this.cena = cena;
     }
 
+    /**
+     * Konstruktor koji inicijalizuje objekat sa prosleđenim nazivom.
+     * 
+     * @param naziv naziv kategorije vozila
+     */
+    
     public KategorijaVozila(String naziv) {
         this.naziv = naziv;
     }
     
+    /**
+     * Konstruktor koji inicijalizuje objekat sa prosleđenim identifikatorom.
+     * 
+     * @param id identifikator kategorije vozila
+     */
+    
     public KategorijaVozila(Long id) {
         this.id = id;
     }
+    
+    /**
+     * Podrazumevani konstruktor.
+     */
     
     public KategorijaVozila() {
     }
@@ -58,26 +86,62 @@ public class KategorijaVozila extends OpstiObjekat {
         return Objects.equals(this.naziv, other.naziv);
     }
     
+    /**
+     * Getter metoda za identifikator kategorije vozila.
+     * 
+     * @return identifikator kategorije vozila
+     */
+    
     public Long getId() {
         return id;
     }
 
+    /**
+     * Setter metoda za identifikator kategorije vozila.
+     * 
+     * @param id identifikator kategorije vozila
+     */
+    
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Getter metoda za naziv kategorije vozila.
+     * 
+     * @return naziv kategorije vozila
+     */
+    
     public String getNaziv() {
         return naziv;
     }
 
+    /**
+     * Setter metoda za naziv kategorije vozila.
+     * 
+     * @param naziv naziv kategorije vozila
+     */
+    
     public void setNaziv(String naziv) {
         this.naziv = naziv;
     }
 
+    /**
+     * Getter metoda za cenu kategorije vozila.
+     * 
+     * @return cena kategorije vozila
+     */
+    
     public double getCena() {
         return cena;
     }
 
+    /**
+     * Setter metoda za cenu kategorije vozila.
+     * 
+     * @param cena cena kategorije vozila
+     */
+    
     public void setCena(double cena) {
         this.cena = cena;
     }
