@@ -6,10 +6,23 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
+/**
+ * Model tabele za prikaz korisnika.
+ * Klasa nasleđuje apstraktnu klasu AbstractTableModel i implementira njene apstraktne metode.
+ */
+
 public class ModelTabeleKorisnici extends AbstractTableModel {
 
+	/**
+	 * lista korisnika
+	 */
     List<Korisnik> korisnici;
 
+    /**
+     * Konstruktor koji inicijalizuje model tabele korisnika.
+     * @param korisnici Lista korisnika.
+     */
+    
     public ModelTabeleKorisnici(List<Korisnik> korisnici) {
         this.korisnici = korisnici;
     }
@@ -68,20 +81,42 @@ public class ModelTabeleKorisnici extends AbstractTableModel {
         }
     }
 
+    /**
+     * Dodaje korisnika u tabelu.
+     * @param korisnik Korisnik koji se dodaje.
+     */
+    
     public void dodajKorisnika(Korisnik korisnik) {
         korisnici.add(korisnik);
         fireTableDataChanged();
     }
 
+    /**
+     * Briše korisnika iz tabele na datom indeksu.
+     * @param index Indeks korisnika koji se briše.
+     */
+    
     public void izbrsiKorisnika(int index) {
         korisnici.remove(index);
         fireTableDataChanged();
     }
 
+    /**
+     * Vraća korisnika sa datog indeksa.
+     * @param index Indeks korisnika.
+     * @return Korisnik sa datog indeksa.
+     */
+    
     public Korisnik vratiKorisnika(int index) {
         return korisnici.get(index);
     }
 
+    /**
+     * Proverava da li korisnik već postoji u tabeli.
+     * @param korisnik Korisnik koji se proverava.
+     * @return True ako korisnik postoji, false ako ne postoji.
+     */
+    
     public boolean daLiPostoji(Korisnik korisnik) {
         for (Korisnik k : korisnici) {
             if (korisnik.equals(k)) {
@@ -96,6 +131,11 @@ public class ModelTabeleKorisnici extends AbstractTableModel {
         return false;
     }
 
+    /**
+     * Izmenjuje podatke o korisniku u tabeli.
+     * @param noviKorisnik Korisnik sa izmenjenim podacima.
+     */
+    
     public void izmeniPodatke(Korisnik noviKorisnik) {
         for(Korisnik korisnik : korisnici) {
             if(korisnik.equals(noviKorisnik)) {

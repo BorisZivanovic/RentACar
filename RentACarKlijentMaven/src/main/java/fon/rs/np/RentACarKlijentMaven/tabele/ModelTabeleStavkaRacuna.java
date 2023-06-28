@@ -7,10 +7,23 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
+/**
+ * Model tabele za prikaz stavki računa.
+ * Klasa nasleđuje apstraktnu klasu AbstractTableModel i implementira njene apstraktne metode.
+ */
+
 public class ModelTabeleStavkaRacuna extends AbstractTableModel {
 
+	/**
+	 * lista stavki racuna
+	 */
     List<StavkaRacuna> iznajmljeno;
 
+    /**
+     * Konstruktor koji inicijalizuje model tabele stavki računa.
+     * @param iznajmljeno Lista stavki računa.
+     */
+    
     public ModelTabeleStavkaRacuna(List<StavkaRacuna> iznajmljeno) {
         if (iznajmljeno == null) {
             this.iznajmljeno = new ArrayList<>();
@@ -72,20 +85,41 @@ public class ModelTabeleStavkaRacuna extends AbstractTableModel {
         }
     }
 
+    /**
+     * Dodaje novu stavku računa u tabelu.
+     * @param novo Stavka računa koja se dodaje.
+     */
+    
     public void dodajIznajmljeno(StavkaRacuna novo) {
         iznajmljeno.add(novo);
         fireTableDataChanged();
     }
 
+    /**
+     * Izbacuje stavku računa iz tabele na datom indeksu.
+     * @param index Indeks stavke računa koja se izbacuje.
+     */
+    
     public void izbaci(int index) {
         iznajmljeno.remove(index);
         fireTableDataChanged();
     }
 
+    /**
+     * Vraća listu stavki računa.
+     * @return Lista stavki računa.
+     */
+    
     public List<StavkaRacuna> getIznajmljeno() {
         return iznajmljeno;
     }
 
+    /**
+     * Vraća stavku računa sa datog indeksa.
+     * @param index Indeks stavke računa.
+     * @return Stavka računa sa datog indeksa.
+     */
+    
     public StavkaRacuna vrati(int index) {
         return iznajmljeno.get(index);
     }

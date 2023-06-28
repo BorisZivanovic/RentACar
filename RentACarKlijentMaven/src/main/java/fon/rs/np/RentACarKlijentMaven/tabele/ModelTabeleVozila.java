@@ -5,9 +5,22 @@ import fon.rs.np.RentACarZajednickiMaven.domen.Vozilo;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
+/**
+ * Model tabele za prikaz vozila.
+ * Klasa nasleđuje apstraktnu klasu AbstractTableModel i implementira njene apstraktne metode.
+ */
+
 public class ModelTabeleVozila extends AbstractTableModel {
 
+	/**
+	 * lista vozila
+	 */
     List<Vozilo> vozila;
+    
+    /**
+     * Konstruktor koji inicijalizuje model tabele vozila.
+     * @param vozila Lista vozila.
+     */
     
     public ModelTabeleVozila(List<Vozilo> vozila) {
         this.vozila = vozila;
@@ -57,19 +70,40 @@ public class ModelTabeleVozila extends AbstractTableModel {
         return null;
     }
     
+    /**
+     * Dodaje novo vozilo u tabelu.
+     * @param vozilo Vozilo koje se dodaje.
+     */
+    
     public void dodajVozilo(Vozilo vozilo) {
         vozila.add(vozilo);
         fireTableDataChanged();
     }
     
+    /**
+     * Vraća vozilo sa datim indeksom.
+     * @param broj Indeks vozila.
+     * @return Vozilo sa datog indeksa.
+     */
+    
     public Vozilo vratiVozilo(int broj) {
         return vozila.get(broj);
     }
 
+    /**
+     * Izbacuje vozilo iz tabele na datom indeksu.
+     * @param row Indeks vozila koje se izbacuje.
+     */
+    
     public void izbrisiVozilo(int row) {
         vozila.remove(row);
         fireTableDataChanged();
     }
+    
+    /**
+     * Postavlja status vozila na ZAUZETO za dato vozilo.
+     * @param v Vozilo koje se iznajmljuje.
+     */
     
     public void iznajmi(Vozilo v) {
         for(Vozilo vozilo : vozila) {
@@ -81,6 +115,11 @@ public class ModelTabeleVozila extends AbstractTableModel {
         }
     }
     
+    /**
+     * Postavlja status vozila na SLOBODNO za dato vozilo.
+     * @param v Vozilo koje se vraća, a prethodno je bilo iznajmljeno.
+     */
+    
     public void vratiIznajmljeno(Vozilo v) {
         for(Vozilo vozilo : vozila) {
             if(vozilo.getId().equals(v.getId())) {
@@ -90,6 +129,11 @@ public class ModelTabeleVozila extends AbstractTableModel {
             }
         }
     }
+    
+    /**
+     * Izmenjuje podatke o vozilu.
+     * @param v Vozilo sa izmenjenim podacima.
+     */
     
     public void izmeniVozilo(Vozilo v) {
         for(Vozilo vozilo : vozila) {
