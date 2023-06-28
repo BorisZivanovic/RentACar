@@ -10,8 +10,19 @@ import java.util.logging.Logger;
 import fon.rs.np.RentACarServerMaven.so.OpstaSistemskaOperacija;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
+/**
+ * Sistemska operacija za iznajmljivanje vozila.
+ */
+
 public class IznajmiVozilo extends OpstaSistemskaOperacija {
 
+	 /**
+     * Izvršava operaciju iznajmljivanja vozila.
+     *
+     * @param objekat Objekat koji sadrži podatke o računu i stavkama računa.
+     * @return Odgovor koji sadrži iznajmljeni račun ili poruku o neuspešnom izvršavanju operacije.
+     */
+	
     @Override
     public Odgovor izvrsiOperaciju(OpstiObjekat objekat) {
         Odgovor odgovor = new Odgovor();

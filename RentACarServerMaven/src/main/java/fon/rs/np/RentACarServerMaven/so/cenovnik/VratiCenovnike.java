@@ -9,8 +9,19 @@ import java.util.logging.Logger;
 import fon.rs.np.RentACarServerMaven.so.OpstaSistemskaOperacija;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
+/**
+ * Sistemska operacija koja vraća sve cenovnike iz baze podataka.
+ */
+
 public class VratiCenovnike extends OpstaSistemskaOperacija{
 
+	/**
+     * Izvršava operaciju vraćanja cenovnika.
+     *
+     * @param objekat Objekat koji sadrži podatke potrebne za izvršavanje operacije.
+     * @return Odgovor koji sadrži listu cenovnika ili poruku o neuspešnom izvršavanju operacije.
+     */
+	
     @Override
     public Odgovor izvrsiOperaciju(OpstiObjekat objekat) {
         Odgovor odgovor = new Odgovor();

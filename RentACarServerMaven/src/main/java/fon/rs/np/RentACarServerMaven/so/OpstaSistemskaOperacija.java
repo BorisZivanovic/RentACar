@@ -6,8 +6,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
+/**
+ * Apstraktna sistemska operacija koju sve konkretne sistemske operacije nasleđuju.
+ */
+
 public abstract class OpstaSistemskaOperacija {
     
+	/**
+     * Izvršava tranziciju koja se sastoji od otvaranja konekcije,
+     * izvršavanja konkretne operacije, potvrde (commit) ili poništenja (rollback) transakcije i zatvaranja konekcije.
+     *
+     * @param objekat Objekat nad kojim se izvršava operacija.
+     * @return Odgovor koji predstavlja rezultat izvršavanja operacije.
+     */
+	
     public Odgovor izvrsiTranziciju(OpstiObjekat objekat) {
         Odgovor odgovor = new Odgovor();
         
@@ -27,6 +39,13 @@ public abstract class OpstaSistemskaOperacija {
         
         return odgovor;
     }
+    
+    /**
+     * Izvršava konkretnu operaciju nad objektom.
+     *
+     * @param objekat Objekat nad kojim se izvršava operacija.
+     * @return Odgovor koji predstavlja rezultat izvršavanja operacije.
+     */
     
     public abstract Odgovor izvrsiOperaciju(OpstiObjekat objekat);
     

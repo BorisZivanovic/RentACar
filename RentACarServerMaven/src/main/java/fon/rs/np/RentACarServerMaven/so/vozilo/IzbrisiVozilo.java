@@ -8,8 +8,19 @@ import java.util.logging.Logger;
 import fon.rs.np.RentACarServerMaven.so.OpstaSistemskaOperacija;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
+/**
+ * Sistemska operacija za brisanje vozila.
+ */
+
 public class IzbrisiVozilo extends OpstaSistemskaOperacija{
 
+	/**
+     * Izvršava operaciju brisanja vozila.
+     *
+     * @param objekat Objekat koji predstavlja vozilo koje treba obrisati.
+     * @return Odgovor koji sadrži informaciju o uspešnosti brisanja vozila ili poruku o neuspešnom izvršavanju operacije.
+     */
+	
     @Override
     public Odgovor izvrsiOperaciju(OpstiObjekat objekat) {
         Odgovor odgovor = new Odgovor();

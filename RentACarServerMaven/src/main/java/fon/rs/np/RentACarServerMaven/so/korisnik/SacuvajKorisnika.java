@@ -8,8 +8,19 @@ import java.util.logging.Logger;
 import fon.rs.np.RentACarServerMaven.so.OpstaSistemskaOperacija;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
+/**
+ * Sistemska operacija za čuvanje korisnika.
+ */
+
 public class SacuvajKorisnika extends OpstaSistemskaOperacija {
 
+	/**
+     * Izvršava operaciju čuvanja korisnika.
+     *
+     * @param objekat Objekat koji predstavlja korisnika koji treba da se sačuva.
+     * @return Odgovor koji sadrži ID sačuvanog korisnika ili poruku o neuspešnom izvršavanju operacije.
+     */
+	
     @Override
     public Odgovor izvrsiOperaciju(OpstiObjekat objekat) {
         Odgovor odgovor = new Odgovor();

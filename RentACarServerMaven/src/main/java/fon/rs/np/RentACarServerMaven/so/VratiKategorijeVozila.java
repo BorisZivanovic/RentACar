@@ -8,8 +8,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
+/**
+ * Sistemska operacija koja vraća sve kategorije vozila iz baze podataka.
+ */
+
 public class VratiKategorijeVozila extends OpstaSistemskaOperacija {
 
+	/**
+     * Izvršava operaciju vraćanja kategorija vozila.
+     *
+     * @param objekat Objekat koji predstavlja kategoriju vozila.
+     * @return Odgovor koji sadrži listu pronađenih kategorija vozila.
+     */
+	
     @Override
     public Odgovor izvrsiOperaciju(OpstiObjekat objekat) {
         Odgovor odgovor = new Odgovor();

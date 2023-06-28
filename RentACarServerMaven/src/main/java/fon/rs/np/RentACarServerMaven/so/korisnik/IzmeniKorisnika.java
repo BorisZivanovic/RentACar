@@ -8,8 +8,19 @@ import java.util.logging.Logger;
 import fon.rs.np.RentACarServerMaven.so.OpstaSistemskaOperacija;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
+/**
+ * Sistemska operacija za izmenu podataka o korisniku.
+ */
+
 public class IzmeniKorisnika extends OpstaSistemskaOperacija {
 
+	 /**
+     * Izvršava operaciju izmene podataka o korisniku.
+     *
+     * @param objekat Objekat koji predstavlja izmenjenog korisnika.
+     * @return Odgovor koji sadrži poruku o uspešnoj izmeni ili poruku o neuspešnom izvršavanju operacije.
+     */
+	
     @Override
     public Odgovor izvrsiOperaciju(OpstiObjekat objekat) {
         Odgovor odgovor = new Odgovor();

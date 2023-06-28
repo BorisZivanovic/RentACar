@@ -8,8 +8,19 @@ import java.util.logging.Logger;
 import fon.rs.np.RentACarServerMaven.so.OpstaSistemskaOperacija;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
+/**
+ * Sistemska operacija za brisanje korisnika iz sistema.
+ */
+
 public class IzbrisiKorisnika extends OpstaSistemskaOperacija {
 
+	/**
+     * Izvršava operaciju brisanja korisnika iz sistema.
+     *
+     * @param objekat Objekat koji predstavlja korisnika koji se briše.
+     * @return Odgovor koji sadrži poruku o uspešnom brisanju ili poruku o neuspešnom izvršavanju operacije.
+     */
+	
     @Override
     public Odgovor izvrsiOperaciju(OpstiObjekat objekat) {
         Odgovor odgovor = new Odgovor();
