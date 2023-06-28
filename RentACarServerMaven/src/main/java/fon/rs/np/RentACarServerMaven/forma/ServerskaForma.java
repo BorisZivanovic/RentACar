@@ -3,9 +3,21 @@ package fon.rs.np.RentACarServerMaven.forma;
 import javax.swing.JOptionPane;
 import fon.rs.np.RentACarServerMaven.server.PokreniServer;
 
+/**
+ * Klasa koja predstavlja serversku formu.
+ */
+
 public class ServerskaForma extends javax.swing.JFrame {
 
+	/**
+	 * instanca klase koja pokrece serversku formu
+	 */
     PokreniServer ps;
+    
+    /**
+     * Konstruktor klase ServerskaForma.
+     * Inicijalizuje komponente forme i kreira instancu PokreniServer.
+     */
     
     public ServerskaForma() {
         initComponents();
@@ -74,6 +86,14 @@ public class ServerskaForma extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Metoda koja se poziva prilikom klika na dugme "Pokreni server".
+     * Ako je server već pokrenut, prikazuje se odgovarajuća poruka.
+     * Inače, kreira se nova instanca PokreniServer i pokreće se.
+     * 
+     * @param evt događaj klika na dugme
+     */
+    
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         if(ps.isAlive())
             JOptionPane.showMessageDialog(this, "Server je pokrenut...");
@@ -83,6 +103,14 @@ public class ServerskaForma extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnStartActionPerformed
 
+    /**
+     * Metoda koja se poziva prilikom klika na dugme "Ugasi server".
+     * Ako je server pokrenut, zaustavlja se.
+     * Inače, prikazuje se odgovarajuća poruka.
+     * 
+     * @param evt događaj klika na dugme
+     */
+    
     private void btnEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEndActionPerformed
         if(ps.isAlive())
             ps.stopServer();
