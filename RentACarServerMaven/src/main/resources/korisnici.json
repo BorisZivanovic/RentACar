@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "ime": "Pera",
+    "prezime": "Peric",
+    "JMBG": 1101000756432,
+    "datumRodjenja": "Oct 3, 2000",
+    "mesto": {
+      "id": 1,
+      "naziv": "Beograd"
+    }
+  },
+  {
+    "id": 2,
+    "ime": "Cone",
+    "prezime": "Vozd",
+    "JMBG": 12312413213,
+    "datumRodjenja": "May 10, 2000",
+    "mesto": {
+      "id": 1,
+      "naziv": "Beograd"
+    }
+  },
+  {
+    "id": 5,
+    "ime": "Novi",
+    "prezime": "Cone",
+    "JMBG": 21312413231,
+    "datumRodjenja": "May 11, 1994",
+    "mesto": {
+      "id": 5,
+      "naziv": "Kruševac"
+    }
+  },
+  {
+    "id": 6,
+    "ime": "Cone",
+    "prezime": "Conic",
+    "JMBG": 123141231,
+    "datumRodjenja": "May 15, 2003",
+    "mesto": {
+      "id": 1,
+      "naziv": "Beograd"
+    }
+  },
+  {
+    "id": 8,
+    "ime": "Cone",
+    "prezime": "Conici",
+    "JMBG": 123241231,
+    "datumRodjenja": "May 15, 2003",
+    "mesto": {
+      "id": 3,
+      "naziv": "Kragujevac"
+    }
+  },
+  {
+    "id": 9,
+    "ime": "Novi",
+    "prezime": "Novii",
+    "JMBG": 123124121,
+    "datumRodjenja": "May 17, 2002",
+    "mesto": {
+      "id": 2,
+      "naziv": "Niš"
+    }
+  },
+  {
+    "id": 16,
+    "ime": "Marko",
+    "prezime": "Markovic",
+    "JMBG": 234567899,
+    "datumRodjenja": "Nov 10, 3900",
+    "mesto": {
+      "id": 1,
+      "naziv": "Beograd"
+    }
+  },
+  {
+    "id": 18,
+    "ime": "Marko",
+    "prezime": "Markovic",
+    "JMBG": 234567899,
+    "datumRodjenja": "Nov 10, 3900",
+    "mesto": {
+      "id": 1,
+      "naziv": "Beograd"
+    }
+  }
+]
