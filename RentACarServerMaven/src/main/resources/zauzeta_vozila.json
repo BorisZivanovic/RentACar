@@ -1,0 +1,14 @@
+[
+  {
+    "id": 3,
+    "registarskiBroj": "BG12342",
+    "marka": "Mercedes",
+    "model": "Benz",
+    "statusVozila": "ZAUZETO",
+    "kategorijaVozila": {
+      "id": 2,
+      "naziv": "Limuzina",
+      "cena": 4000.0
+    }
+  }
+]
