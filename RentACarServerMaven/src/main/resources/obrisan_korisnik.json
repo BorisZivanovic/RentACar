@@ -1,0 +1,11 @@
+{
+  "id": 18,
+  "ime": "Marko",
+  "prezime": "Markovic",
+  "JMBG": 234567899,
+  "datumRodjenja": "Dec 10, 5800 12:00:00 AM",
+  "mesto": {
+    "id": 1,
+    "naziv": "Beograd"
+  }
+}
