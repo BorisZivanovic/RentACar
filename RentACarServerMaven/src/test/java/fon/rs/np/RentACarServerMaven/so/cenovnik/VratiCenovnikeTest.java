@@ -10,8 +10,13 @@ import fon.rs.np.RentACarZajednickiMaven.domen.Cenovnik;
 import fon.rs.np.RentACarZajednickiMaven.domen.OpstiObjekat;
 import fon.rs.np.RentACarZajednickiMaven.domen.StavkaCenovnika;
 import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
-
-
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 class VratiCenovnikeTest {
 
@@ -36,14 +41,35 @@ class VratiCenovnikeTest {
 	@Test
 	public void vratiCenovnikeTest() {
 		
-		odgovor = vratiCenovnike.izvrsiTranziciju(oo);
+		try {
+            odgovor = vratiCenovnike.izvrsiTranziciju(oo);
+            
+            if (odgovor.isUspesno()) {
+                List<OpstiObjekat> stavkeCenovnika = (List<OpstiObjekat>) odgovor.getOdgovor();
+
+                
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+                
+                String jsonString = gson.toJson(stavkeCenovnika);
+
+                
+                try (FileWriter writer = new FileWriter("src/main/resources/stavke_cenovnika.json")) {
+                    writer.write(jsonString);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(VratiCenovnike.class.getName()).log(Level.SEVERE, null, ex);
+        }
 		
 		assertTrue(odgovor.isUspesno());
 		assertNotNull(odgovor.getOdgovor());
 		assertTrue(odgovor.isUspesno());
 		assertNull(odgovor.getPoruka());
 		
-		
+		 
 	}
 	
 	@Test

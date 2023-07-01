@@ -1,0 +1,56 @@
+[
+  {
+    "naziv": "Osnovna pretplata",
+    "cena": 200.0,
+    "cenovnik": {
+      "id": 1,
+      "naziv": "Basic",
+      "opis": "Osnovni paket sa minimalnim uslugama"
+    }
+  },
+  {
+    "naziv": "Podrska na putu",
+    "cena": 500.0,
+    "cenovnik": {
+      "id": 2,
+      "naziv": "Silver",
+      "opis": "Srebrni paket sa dodatnim pogodnostima"
+    }
+  },
+  {
+    "naziv": "Besplatni kilometri",
+    "cena": 500.0,
+    "cenovnik": {
+      "id": 2,
+      "naziv": "Silver",
+      "opis": "Srebrni paket sa dodatnim pogodnostima"
+    }
+  },
+  {
+    "naziv": "Dodatna oprema",
+    "cena": 400.0,
+    "cenovnik": {
+      "id": 2,
+      "naziv": "Silver",
+      "opis": "Srebrni paket sa dodatnim pogodnostima"
+    }
+  },
+  {
+    "naziv": "Dodatni vozač",
+    "cena": 700.0,
+    "cenovnik": {
+      "id": 2,
+      "naziv": "Silver",
+      "opis": "Srebrni paket sa dodatnim pogodnostima"
+    }
+  },
+  {
+    "naziv": "VIP podrška",
+    "cena": 2000.0,
+    "cenovnik": {
+      "id": 3,
+      "naziv": "Gold",
+      "opis": "Zlatni paket sa premium uslugama"
+    }
+  }
+]
