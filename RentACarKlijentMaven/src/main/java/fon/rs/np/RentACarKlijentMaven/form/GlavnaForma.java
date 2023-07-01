@@ -106,7 +106,7 @@ public class GlavnaForma extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/slike/rent-a-car.jpg"))); // NOI18N
+        lblPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("src/main/resources/slike/rent-a-car.jpg"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 255));

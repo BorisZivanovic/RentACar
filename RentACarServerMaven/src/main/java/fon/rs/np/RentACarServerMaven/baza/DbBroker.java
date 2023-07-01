@@ -50,7 +50,7 @@ public class DbBroker {
     public Connection otvoriKonekciju() throws Exception {
         if(konekcija == null || konekcija.isClosed()) {
             Properties properties = new Properties();
-            properties.load(new FileInputStream("baza.properties"));
+            properties.load(new FileInputStream("src/main/resources/baza.properties"));
             konekcija = DriverManager.getConnection(properties.getProperty("url"), properties.getProperty("user"),
                     properties.getProperty("pass"));
             konekcija.setAutoCommit(false);
