@@ -2,10 +2,19 @@ package fon.rs.np.RentACarServerMaven.so.vozilo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import fon.rs.np.RentACarServerMaven.baza.DbBroker;
 import fon.rs.np.RentACarZajednickiMaven.domen.Cenovnik;
 import fon.rs.np.RentACarZajednickiMaven.domen.KategorijaVozila;
 import fon.rs.np.RentACarZajednickiMaven.domen.OpstiObjekat;
@@ -43,6 +52,16 @@ class SacuvajVoziloTest {
 		assertTrue(odgovor.isUspesno());
 		assertNull(odgovor.getOdgovor());
 		assertNotNull(odgovor.getPoruka());
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    
+        String jsonString = gson.toJson(oo);
+
+        try (FileWriter writer = new FileWriter("src/main/resources/novo_vozilo.json")) {
+            writer.write(jsonString);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
 		
 	}
 	
@@ -55,4 +74,6 @@ class SacuvajVoziloTest {
 		
 	}
 
+
 }
+	

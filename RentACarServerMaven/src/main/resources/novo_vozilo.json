@@ -1,0 +1,12 @@
+{
+  "id": 5,
+  "registarskiBroj": "BG12312",
+  "marka": "Audi",
+  "model": "A6",
+  "statusVozila": "SLOBODNO",
+  "kategorijaVozila": {
+    "id": 1,
+    "naziv": "Karavan",
+    "cena": 3000.0
+  }
+}
