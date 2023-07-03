@@ -68,6 +68,63 @@ class StavkaCenovnikaTest {
         assertEquals(expectedString, actualString);
     }
     
-    
+    @Test
+    void setId_NegativanId_Izuzetak() {
+        StavkaCenovnika stavka = new StavkaCenovnika();
+
+        assertThrows(IllegalArgumentException.class, () -> stavka.setId(-1L));
+    }
+
+    @Test
+    void setNaziv_KraciOdDvaKaraktera_Izuzetak() {
+        StavkaCenovnika stavka = new StavkaCenovnika();
+
+        assertThrows(IllegalArgumentException.class, () -> stavka.setNaziv("S"));
+    }
+
+    @Test
+    void setOpis_KraciOdDvaKaraktera_Izuzetak() {
+        StavkaCenovnika stavka = new StavkaCenovnika();
+
+        assertThrows(IllegalArgumentException.class, () -> stavka.setOpis("O"));
+    }
+
+    @Test
+    void setCena_NegativnaCena_Izuzetak() {
+        StavkaCenovnika stavka = new StavkaCenovnika();
+
+        assertThrows(IllegalArgumentException.class, () -> stavka.setCena(-1000.0));
+    }
+
+    @Test
+    void setCenovnik_NullCenovnik_Izuzetak() {
+        StavkaCenovnika stavka = new StavkaCenovnika();
+
+        assertThrows(IllegalArgumentException.class, () -> stavka.setCenovnik(null));
+    }
+
+    @Test
+    void setCenovnik_CenovnikBezId_Izuzetak() {
+        StavkaCenovnika stavka = new StavkaCenovnika();
+        Cenovnik cenovnik = new Cenovnik(0L, "", "Opis cenovnika");
+
+        assertThrows(IllegalArgumentException.class, () -> stavka.setCenovnik(cenovnik));
+    }
+
+    @Test
+    void setCenovnik_CenovnikBezNaziva_Izuzetak() {
+        StavkaCenovnika stavka = new StavkaCenovnika();
+        Cenovnik cenovnik = new Cenovnik(1L, "", "Opis cenovnika");
+
+        assertThrows(IllegalArgumentException.class, () -> stavka.setCenovnik(cenovnik));
+    }
+
+    @Test
+    void setCenovnik_CenovnikBezOpisa_Izuzetak() {
+        StavkaCenovnika stavka = new StavkaCenovnika();
+        Cenovnik cenovnik = new Cenovnik(1L, "Cenovnik", "");
+
+        assertThrows(IllegalArgumentException.class, () -> stavka.setCenovnik(cenovnik));
+    }
     
 }

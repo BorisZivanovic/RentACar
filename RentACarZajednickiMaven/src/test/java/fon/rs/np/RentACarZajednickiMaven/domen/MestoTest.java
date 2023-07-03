@@ -20,6 +20,17 @@ class MestoTest {
 		mesto = null;
 	}
 	
+	@Test
+    void konstruktorTest() {
+        Long id = 1L;
+        String naziv = "Beograd";
+
+        Mesto mesto = new Mesto(id, naziv);
+
+        assertEquals(id, mesto.getId());
+        assertEquals(naziv, mesto.getNaziv());
+    }
+	
 	 @Test
 	    public void testSetId() {
 	        mesto.setId(2L);
@@ -59,4 +70,18 @@ class MestoTest {
 	        assertEquals("Beograd", mesto.toString());
 	    }
 
+	    @Test
+	    void setId_NegativanId() {
+	        Mesto mesto = new Mesto();
+
+	        assertThrows(IllegalArgumentException.class, () -> mesto.setId(-1L));
+	    }
+
+	    @Test
+	    void setNaziv_NullNaziv() {
+	        Mesto mesto = new Mesto();
+
+	        assertThrows(NullPointerException.class, () -> mesto.setNaziv(null));
+	    }
+	    
 }

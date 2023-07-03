@@ -3,6 +3,7 @@ package fon.rs.np.RentACarZajednickiMaven.domen;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -94,6 +95,53 @@ class VoziloTest {
         boolean result = vozilo1.equals(vozilo2);
         assertEquals(expected, result);
     }
+    
+    @Test
+    public void testSetId_NegativanId() {
+        Vozilo vozilo = new Vozilo();
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            vozilo.setId(-1L);
+        });
+    }
+
+    @Test
+    public void testSetMarka_Null() {
+        Vozilo vozilo = new Vozilo();
+
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            vozilo.setMarka(null);
+        });
+    }
+
+    @Test
+    public void testSetModel_Null() {
+        Vozilo vozilo = new Vozilo();
+
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            vozilo.setModel(null);
+        });
+    }
+
+    @Test
+    public void testSetKategorijaVozila_Null() {
+        Vozilo vozilo = new Vozilo();
+        KategorijaVozila kategorijaVozila = new KategorijaVozila(0L, "", 0);
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            vozilo.setKategorijaVozila(kategorijaVozila);
+        });
+    }
+
+    @Test
+    public void testSetRegistarskiBroj_Null() {
+        Vozilo vozilo = new Vozilo();
+
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            vozilo.setRegistarskiBroj(null);
+        });
+    }
+        
 }
     
 

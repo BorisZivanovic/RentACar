@@ -113,6 +113,7 @@ public class Racun extends OpstiObjekat {
     	Date currentDate = new Date();
         if (datumIzdavanja.after(currentDate)) 
             throw new IllegalArgumentException("Datum ne sme biti posle danasnjeg!");
+        this.datumIzdavanja = datumIzdavanja;
     }
 
     /**

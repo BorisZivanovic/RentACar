@@ -140,8 +140,7 @@ public class StavkaRacuna extends OpstiObjekat {
      */
     
     public void setRacun(Racun racun) {
-    	if(racun == null )
-    		throw new NullPointerException("Racun ne sme biti null");
+ 
         this.racun = racun;
     }
 

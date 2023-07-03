@@ -85,4 +85,19 @@ class CenovnikTest {
         Assertions.assertEquals(ocekivaniString, dobijeniString);
     }
 	
+	@Test
+    void testSetIdGreska() {
+        assertThrows(IllegalArgumentException.class, () -> cenovnik.setId(-1L));
+    }
+
+    @Test
+    void testSetNazivGreska() {
+        assertThrows(NullPointerException.class, () -> cenovnik.setNaziv(null));
+    }
+
+    @Test
+    void testSetOpisGreska() {
+        assertThrows(NullPointerException.class, () -> cenovnik.setOpis(null));
+    }
+	
 }

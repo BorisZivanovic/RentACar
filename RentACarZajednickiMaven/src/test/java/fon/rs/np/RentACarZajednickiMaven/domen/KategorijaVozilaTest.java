@@ -66,6 +66,21 @@ class KategorijaVozilaTest {
 
         assertEquals(res, kategorija1.equals(kategorija2));
     }
+    
+    @Test
+    void testSetIdGreska() {
+        assertThrows(IllegalArgumentException.class, () -> kategorija.setId(-1L));
+    }
+
+    @Test
+    void testSetNazivGreska() {
+        assertThrows(NullPointerException.class, () -> kategorija.setNaziv(null));
+    }
+
+    @Test
+    void testSetCenaGreska() {
+        assertThrows(IllegalArgumentException.class, () -> kategorija.setCena(-100.0));
+    }
 }
     
 

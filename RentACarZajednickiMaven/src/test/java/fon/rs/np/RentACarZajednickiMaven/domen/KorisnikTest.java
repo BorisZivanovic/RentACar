@@ -161,6 +161,54 @@ class KorisnikTest {
         assertEquals(expected, result);
     }
     
+    @Test
+    void setId_NegativanId() {
+        Korisnik korisnik = new Korisnik();
+        
+        assertThrows(IllegalArgumentException.class, () -> korisnik.setId(-1L));
+    }
 
+    @Test
+    void setIme_NullIme() {
+        Korisnik korisnik = new Korisnik();
+        
+        assertThrows(NullPointerException.class, () -> korisnik.setIme(null));
+    }
+
+    @Test
+    void setPrezime_NullPrezime() {
+        Korisnik korisnik = new Korisnik();
+        
+        assertThrows(NullPointerException.class, () -> korisnik.setPrezime(null));
+    }
+
+    @Test
+    void setJMBG_NegativanJMBG() {
+        Korisnik korisnik = new Korisnik();
+        
+        assertThrows(IllegalArgumentException.class, () -> korisnik.setJMBG(-1L));
+    }
+
+    @Test
+    void setDatumRodjenja_NullDatumRodjenja() {
+        Korisnik korisnik = new Korisnik();
+        
+        assertThrows(NullPointerException.class, () -> korisnik.setDatumRodjenja(null));
+    }
+
+    @Test
+    void setDatumRodjenja_FutureDate() {
+        Korisnik korisnik = new Korisnik();
+        Date futureDate = new Date(System.currentTimeMillis() + 86400000L); // +1 day
+        
+        assertThrows(IllegalArgumentException.class, () -> korisnik.setDatumRodjenja(futureDate));
+    }
+
+    @Test
+    void setMesto_NullMesto() {
+        Korisnik korisnik = new Korisnik();
+        
+        assertThrows(IllegalArgumentException.class, () -> korisnik.setMesto(null));
+    }
     
 }
