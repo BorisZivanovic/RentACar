@@ -33,12 +33,12 @@ public class Vozilo extends OpstiObjekat {
      */
     
     public Vozilo(Long id, String registarskiBroj, String marka, String model, StatusVozila statusVozila, KategorijaVozila kategorijaVozila) {
-        this.id = id;
-        this.registarskiBroj = registarskiBroj;
-        this.marka = marka;
-        this.model = model;
-        this.statusVozila = statusVozila;
-        this.kategorijaVozila = kategorijaVozila;
+        setId(id);
+        setRegistarskiBroj(registarskiBroj);
+        setMarka(marka);
+        setModel(model);
+        setStatusVozila(statusVozila);
+        setKategorijaVozila(kategorijaVozila);
     }
 
     /**
@@ -52,11 +52,11 @@ public class Vozilo extends OpstiObjekat {
      */
     
     public Vozilo(String registarskiBroj, String marka, String model, StatusVozila statusVozila, KategorijaVozila kategorijaVozila) {
-        this.registarskiBroj = registarskiBroj;
-        this.marka = marka;
-        this.model = model;
-        this.statusVozila = statusVozila;
-        this.kategorijaVozila = kategorijaVozila;
+    	setRegistarskiBroj(registarskiBroj);
+        setMarka(marka);
+        setModel(model);
+        setStatusVozila(statusVozila);
+        setKategorijaVozila(kategorijaVozila);
     }
     
     /**
@@ -70,11 +70,11 @@ public class Vozilo extends OpstiObjekat {
      */
     
     public Vozilo(Long id, String registarskiBroj, String marka, String model, KategorijaVozila kategorijaVozila) {
-        this.id = id;
-        this.registarskiBroj = registarskiBroj;
-        this.marka = marka;
-        this.model = model;
-        this.kategorijaVozila = kategorijaVozila;
+        setId(id);
+        setRegistarskiBroj(registarskiBroj);
+        setMarka(marka);
+        setModel(model);
+        setKategorijaVozila(kategorijaVozila);
     }
     
     /**
@@ -84,7 +84,7 @@ public class Vozilo extends OpstiObjekat {
      */
     
     public Vozilo(String registarskiBroj) {
-        this.registarskiBroj = registarskiBroj;
+        setRegistarskiBroj(registarskiBroj);
     }
 
     @Override
@@ -138,6 +138,8 @@ public class Vozilo extends OpstiObjekat {
      */
     
     public void setId(Long id) {
+    	if(id < 0)
+            throw new IllegalArgumentException("Id ne sme biti negativan broj");
         this.id = id;
     }
 
@@ -158,6 +160,8 @@ public class Vozilo extends OpstiObjekat {
      */
     
     public void setMarka(String marka) {
+    	if(marka == null )
+    		throw new NullPointerException("Marka ne sme biti null");
         this.marka = marka;
     }
 
@@ -178,6 +182,8 @@ public class Vozilo extends OpstiObjekat {
      */
     
     public void setModel(String model) {
+    	if(model == null )
+    		throw new NullPointerException("Model ne sme biti null");
         this.model = model;
     }
 
@@ -218,6 +224,8 @@ public class Vozilo extends OpstiObjekat {
      */
     
     public void setKategorijaVozila(KategorijaVozila kategorijaVozila) {
+    	if(kategorijaVozila == null )
+    		throw new NullPointerException("Kategorija vozila mora biti inicijalizovana");
         this.kategorijaVozila = kategorijaVozila;
     }
 
@@ -238,6 +246,8 @@ public class Vozilo extends OpstiObjekat {
      */
     
     public void setRegistarskiBroj(String registarskiBroj) {
+    	if(registarskiBroj == null )
+    		throw new NullPointerException("Registarski broj ne sme biti null");
         this.registarskiBroj = registarskiBroj;
     }
 

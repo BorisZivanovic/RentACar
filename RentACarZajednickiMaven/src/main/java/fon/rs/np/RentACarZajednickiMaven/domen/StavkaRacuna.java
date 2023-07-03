@@ -36,14 +36,14 @@ public class StavkaRacuna extends OpstiObjekat {
      */
     
     public StavkaRacuna(Long rbStavke, Racun racun, double iznos, double PDV, double iznosSaPDV, Korisnik korisnik, Vozilo vozilo, Iznajmljivanje iznajmljivanje) {
-        this.rbStavke = rbStavke;
-        this.racun = racun;
-        this.iznos = iznos;
-        this.PDV = PDV;
-        this.iznosSaPDV = iznosSaPDV;
-        this.korisnik = korisnik;
-        this.vozilo = vozilo;
-        this.iznajmljivanje = iznajmljivanje;
+        setRbStavke(rbStavke);
+        setRacun(racun);
+        setIznos(iznos);
+        setPDV(PDV);
+        setIznosSaPDV(iznosSaPDV);
+        setKorisnik(korisnik);
+        setVozilo(vozilo);
+        setIznajmljivanje(iznajmljivanje);
     }
 
     /**
@@ -58,12 +58,12 @@ public class StavkaRacuna extends OpstiObjekat {
      */
     
     public StavkaRacuna(double iznos, double PDV, double iznosSaPDV, Korisnik korisnik, Vozilo vozilo, Iznajmljivanje iznajmljivanje) {
-        this.iznos = iznos;
-        this.PDV = PDV;
-        this.iznosSaPDV = iznosSaPDV;
-        this.korisnik = korisnik;
-        this.vozilo = vozilo;
-        this.iznajmljivanje = iznajmljivanje;
+    	setIznos(iznos);
+        setPDV(PDV);
+        setIznosSaPDV(iznosSaPDV);
+        setKorisnik(korisnik);
+        setVozilo(vozilo);
+        setIznajmljivanje(iznajmljivanje);
     }
 
     /**
@@ -73,7 +73,7 @@ public class StavkaRacuna extends OpstiObjekat {
      */
     
     public StavkaRacuna(double iznosSaPDV) {
-        this.iznosSaPDV = iznosSaPDV;
+        setIznosSaPDV(iznosSaPDV);
     }
 
     /**
@@ -118,6 +118,8 @@ public class StavkaRacuna extends OpstiObjekat {
      */
     
     public void setRbStavke(Long rbStavke) {
+    	if(rbStavke < 0)
+            throw new IllegalArgumentException("Rb stavke ne sme biti negativan broj");
         this.rbStavke = rbStavke;
     }
 
@@ -138,6 +140,8 @@ public class StavkaRacuna extends OpstiObjekat {
      */
     
     public void setRacun(Racun racun) {
+    	if(racun == null )
+    		throw new NullPointerException("Racun ne sme biti null");
         this.racun = racun;
     }
 
@@ -158,6 +162,8 @@ public class StavkaRacuna extends OpstiObjekat {
      */
     
     public void setIznos(double iznos) {
+    	if(iznos <= 0)
+            throw new IllegalArgumentException("Iznos mora biti pozitivan broj");
         this.iznos = iznos;
     }
 
@@ -178,6 +184,8 @@ public class StavkaRacuna extends OpstiObjekat {
      */
     
     public void setPDV(double PDV) {
+    	if(PDV <= 0)
+            throw new IllegalArgumentException("PDV mora biti pozitivan broj");
         this.PDV = PDV;
     }
 
@@ -198,6 +206,8 @@ public class StavkaRacuna extends OpstiObjekat {
      */
     
     public void setIznosSaPDV(double iznosSaPDV) {
+    	if(iznosSaPDV <= 0)
+            throw new IllegalArgumentException("Iznos sa PDV-om mora biti pozitivan broj");
         this.iznosSaPDV = iznosSaPDV;
     }
 
@@ -218,6 +228,8 @@ public class StavkaRacuna extends OpstiObjekat {
      */
 
     public void setKorisnik(Korisnik korisnik) {
+    	if(korisnik == null || korisnik.getId() == 0 || korisnik.getIme().equals("") || korisnik.getPrezime().equals("") || korisnik.getJMBG() == 0 || korisnik.getMesto() == null || korisnik.getDatumRodjenja() == null)
+    		throw new IllegalArgumentException("Korisnik mora biti inicijalizovan");
         this.korisnik = korisnik;
     }
 
@@ -238,6 +250,8 @@ public class StavkaRacuna extends OpstiObjekat {
      */
     
     public void setVozilo(Vozilo vozilo) {
+    	if(vozilo == null || vozilo.getId() == 0 || vozilo.getMarka().equals("") || vozilo.getModel().equals("") || vozilo.getKategorijaVozila() == null || vozilo.getRegistarskiBroj().equals(""))
+    		throw new IllegalArgumentException("Vozilo mora biti inicijalizovano");
         this.vozilo = vozilo;
     }
 
@@ -258,6 +272,8 @@ public class StavkaRacuna extends OpstiObjekat {
      */
     
     public void setIznajmljivanje(Iznajmljivanje iznajmljivanje) {
+    	if(iznajmljivanje == null || iznajmljivanje.getId() == 0 || iznajmljivanje.getKorisnik() == null || iznajmljivanje.getVozilo() == null || iznajmljivanje.getDatumIznajmljivanja() == null || iznajmljivanje.getDatumVracanja() == null)
+    		throw new IllegalArgumentException("Iznajmljivanje mora biti inicijalizovano");
         this.iznajmljivanje = iznajmljivanje;
     }
 

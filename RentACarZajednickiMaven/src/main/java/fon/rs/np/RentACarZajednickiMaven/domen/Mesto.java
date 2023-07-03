@@ -25,8 +25,8 @@ public class Mesto extends OpstiObjekat {
      */
     
     public Mesto(Long id, String naziv) {
-        this.id = id;
-        this.naziv = naziv;
+        setId(id);
+        setNaziv(naziv);
     }
 
     /**
@@ -87,6 +87,8 @@ public class Mesto extends OpstiObjekat {
 
     
     public void setId(Long id) {
+    	if(id < 0)
+    		throw new IllegalArgumentException("Id ne sme biti negativan broj");
         this.id = id;
     }
 
@@ -107,6 +109,8 @@ public class Mesto extends OpstiObjekat {
      */
     
     public void setNaziv(String naziv) {
+    	if(naziv == null )
+    		throw new NullPointerException("Naziv mesta ne sme biti null");
         this.naziv = naziv;
     }
 

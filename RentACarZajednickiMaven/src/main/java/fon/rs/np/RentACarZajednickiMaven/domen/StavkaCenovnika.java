@@ -30,11 +30,11 @@ public class StavkaCenovnika extends OpstiObjekat {
      */
     
     public StavkaCenovnika(Long id, String naziv, String opis, double cena, Cenovnik cenovnik) {
-        this.id = id;
-        this.naziv = naziv;
-        this.opis = opis;
-        this.cena = cena;
-        this.cenovnik = cenovnik;
+        setId(id);
+        setNaziv(naziv);
+        setOpis(opis);
+        setCena(cena);
+        setCenovnik(cenovnik);
     }
     
     /**
@@ -46,9 +46,9 @@ public class StavkaCenovnika extends OpstiObjekat {
      */
     
     public StavkaCenovnika(String naziv, double cena, Cenovnik cenovnik) {
-        this.naziv = naziv;
-        this.cena = cena;
-        this.cenovnik = cenovnik;
+    	setNaziv(naziv);
+        setCena(cena);
+        setCenovnik(cenovnik);
     }
     
     /**
@@ -80,6 +80,8 @@ public class StavkaCenovnika extends OpstiObjekat {
      */
     
     public void setId(Long id) {
+    	if(id < 0)
+            throw new IllegalArgumentException("Id ne sme biti negativan broj");
         this.id = id;
     }
 
@@ -100,6 +102,8 @@ public class StavkaCenovnika extends OpstiObjekat {
      */
     
     public void setNaziv(String naziv) {
+    	if(naziv.length() < 2)
+            throw new IllegalArgumentException("Naziv stavke cenovnika ne sme biti kraci od 2 karaktera");
         this.naziv = naziv;
     }
 
@@ -120,6 +124,8 @@ public class StavkaCenovnika extends OpstiObjekat {
      */
     
     public void setOpis(String opis) {
+    	if(opis.length() < 2)
+            throw new IllegalArgumentException("Opis stavke cenovnika ne sme biti kraci od 2 karaktera");
         this.opis = opis;
     }
 
@@ -140,6 +146,8 @@ public class StavkaCenovnika extends OpstiObjekat {
      */
     
     public void setCena(double cena) {
+    	if(cena <= 0)
+            throw new IllegalArgumentException("Cena mora biti pozitivan broj");
         this.cena = cena;
     }
 
@@ -160,6 +168,8 @@ public class StavkaCenovnika extends OpstiObjekat {
      */
     
     public void setCenovnik(Cenovnik cenovnik) {
+    	if(cenovnik == null || cenovnik.getId() == 0 || cenovnik.getNaziv().equals("") || cenovnik.getOpis().equals(""))
+    		throw new IllegalArgumentException("Cenovnik ne sme biti null");
         this.cenovnik = cenovnik;
     }
 

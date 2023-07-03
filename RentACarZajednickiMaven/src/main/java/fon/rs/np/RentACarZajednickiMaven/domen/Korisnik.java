@@ -36,12 +36,12 @@ public class Korisnik extends OpstiObjekat {
      */
     
     public Korisnik(Long id, String ime, String prezime, Long JMBG, Date datumRodjenja, Mesto mesto) {
-        this.id = id;
-        this.ime = ime;
-        this.prezime = prezime;
-        this.JMBG = JMBG;
-        this.datumRodjenja = datumRodjenja;
-        this.mesto = mesto;
+        setId(id);
+        setIme(ime);
+        setPrezime(prezime);
+        setJMBG(JMBG);
+        setDatumRodjenja(datumRodjenja);
+        setMesto(mesto);
     }
 
     /**
@@ -56,11 +56,11 @@ public class Korisnik extends OpstiObjekat {
      */
     
     public Korisnik(String ime, String prezime, Long JMBG, Date datumRodjenja, Mesto mesto) {
-        this.ime = ime;
-        this.prezime = prezime;
-        this.JMBG = JMBG;
-        this.datumRodjenja = datumRodjenja;
-        this.mesto = mesto;
+    	setIme(ime);
+        setPrezime(prezime);
+        setJMBG(JMBG);
+        setDatumRodjenja(datumRodjenja);
+        setMesto(mesto);
     }
     
     /**
@@ -73,9 +73,9 @@ public class Korisnik extends OpstiObjekat {
      */
     
     public Korisnik(Long id ,String ime, String prezime) {
-        this.id = id;
-        this.ime = ime;
-        this.prezime = prezime;
+    	setId(id);
+        setIme(ime);
+        setPrezime(prezime);
     }
     
     /**
@@ -86,8 +86,8 @@ public class Korisnik extends OpstiObjekat {
      */
     
     public Korisnik(String ime, String prezime) {
-        this.ime = ime;
-        this.prezime = prezime;
+    	setIme(ime);
+        setPrezime(prezime);
     }
     
     /**
@@ -141,6 +141,8 @@ public class Korisnik extends OpstiObjekat {
      */
     
     public void setId(Long id) {
+    	 if(id < 0 )
+         	throw new IllegalArgumentException("Id ne sme biti negativan broj");
         this.id = id;
     }
 
@@ -161,6 +163,8 @@ public class Korisnik extends OpstiObjekat {
      */
     
     public void setIme(String ime) {
+    	if(ime == null )
+    		throw new NullPointerException("Ime korisnika ne sme biti null");
         this.ime = ime;
     }
 
@@ -182,6 +186,8 @@ public class Korisnik extends OpstiObjekat {
      */
     
     public void setPrezime(String prezime) {
+    	if(prezime == null )
+    		throw new NullPointerException("Prezime korisnika ne sme biti null");
         this.prezime = prezime;
     }
 
@@ -202,6 +208,8 @@ public class Korisnik extends OpstiObjekat {
      */
     
     public void setJMBG(Long JMBG) {
+    	 if(JMBG < 0)
+          	throw new IllegalArgumentException("JMBG ne sme biti negativan broj ili 0");
         this.JMBG = JMBG;
     }
 
@@ -222,6 +230,11 @@ public class Korisnik extends OpstiObjekat {
      */
     
     public void setDatumRodjenja(Date datumRodjenja) {
+    	Date currentDate = new Date();
+    	if(datumRodjenja ==null)
+    		throw new NullPointerException("Datum rodjenja ne sme biti null");
+        if (datumRodjenja.after(currentDate)) 
+            throw new IllegalArgumentException("Datum ne sme biti u buducnosti");
         this.datumRodjenja = datumRodjenja;
     }
 
@@ -242,6 +255,8 @@ public class Korisnik extends OpstiObjekat {
      */
     
     public void setMesto(Mesto mesto) {
+    	if(mesto == null || mesto.getId() == 0 || mesto.getNaziv().equals(""))
+    		throw new IllegalArgumentException("Mesto ne sme biti null");
         this.mesto = mesto;
     }
 

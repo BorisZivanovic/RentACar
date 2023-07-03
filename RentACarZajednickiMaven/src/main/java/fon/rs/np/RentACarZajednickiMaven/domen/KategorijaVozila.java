@@ -27,9 +27,9 @@ public class KategorijaVozila extends OpstiObjekat {
      */
     
     public KategorijaVozila(Long id, String naziv, double cena) {
-        this.id = id;
-        this.naziv = naziv;
-        this.cena = cena;
+        setId(id);
+        setNaziv(naziv);
+        setCena(cena);
     }
 
     /**
@@ -39,7 +39,7 @@ public class KategorijaVozila extends OpstiObjekat {
      */
     
     public KategorijaVozila(String naziv) {
-        this.naziv = naziv;
+        setNaziv(naziv);
     }
     
     /**
@@ -49,7 +49,7 @@ public class KategorijaVozila extends OpstiObjekat {
      */
     
     public KategorijaVozila(Long id) {
-        this.id = id;
+       setId(id);
     }
     
     /**
@@ -103,6 +103,8 @@ public class KategorijaVozila extends OpstiObjekat {
      */
     
     public void setId(Long id) {
+    	if(id < 0 )
+        	throw new IllegalArgumentException("Id ne sme biti negativan broj");
         this.id = id;
     }
 
@@ -123,6 +125,8 @@ public class KategorijaVozila extends OpstiObjekat {
      */
     
     public void setNaziv(String naziv) {
+    	if(naziv == null )
+    		throw new NullPointerException("Kategorija vozila ne sme biti null");
         this.naziv = naziv;
     }
 
@@ -143,6 +147,8 @@ public class KategorijaVozila extends OpstiObjekat {
      */
     
     public void setCena(double cena) {
+    	if(cena < 0 )
+        	throw new IllegalArgumentException("Cena ne sme biti negativan broj");
         this.cena = cena;
     }
 

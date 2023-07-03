@@ -26,9 +26,9 @@ public class Cenovnik extends OpstiObjekat {
      */
     
     public Cenovnik(Long id, String naziv, String opis) {
-        this.id = id;
-        this.naziv = naziv;
-        this.opis = opis;
+        setId(id);
+        setNaziv(naziv);
+        setOpis(opis);
     }
 
     @Override
@@ -60,7 +60,9 @@ public class Cenovnik extends OpstiObjekat {
      */
     
     public void setId(Long id) {
-        this.id = id;
+        if(id < 0 )
+        	throw new IllegalArgumentException("Id ne sme biti negativan broj");
+    	this.id = id;
     }
 
     /**
@@ -80,6 +82,8 @@ public class Cenovnik extends OpstiObjekat {
      */
     
     public void setNaziv(String naziv) {
+    	if(naziv == null )
+    		throw new NullPointerException("Naziv cenovnika ne sme biti null");
         this.naziv = naziv;
     }
 
@@ -100,6 +104,8 @@ public class Cenovnik extends OpstiObjekat {
      */
     
     public void setOpis(String opis) {
+    	if(opis == null )
+    		throw new NullPointerException("Opis cenovnika ne sme biti null");
         this.opis = opis;
     }
 

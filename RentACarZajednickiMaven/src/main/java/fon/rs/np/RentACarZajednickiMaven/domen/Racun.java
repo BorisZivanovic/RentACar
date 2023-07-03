@@ -32,13 +32,13 @@ public class Racun extends OpstiObjekat {
      */
     
     public Racun(Long id, Date datumIzdavanja, double cenaBezPDV, double PDV, double cenaSaPDV, Korisnik korisnik, List<StavkaRacuna> stavkaRacuna) {
-        this.id = id;
-        this.datumIzdavanja = datumIzdavanja;
-        this.cenaBezPDV = cenaBezPDV;
-        this.PDV = PDV;
-        this.cenaSaPDV = cenaSaPDV;
-        this.korisnik = korisnik;
-        this.stavkaRacuna = stavkaRacuna;
+        setId(id);
+        setDatumIzdavanja(datumIzdavanja);
+        setCenaBezPDV(cenaBezPDV);
+        setPDV(PDV);
+        setCenaSaPDV(cenaSaPDV);
+        setKorisnik(korisnik);
+        setStavkaRacuna(stavkaRacuna);
     }
     
     /**
@@ -53,12 +53,12 @@ public class Racun extends OpstiObjekat {
      */
     
     public Racun(Date datumIzdavanja, double cenaBezPDV, double PDV, double cenaSaPDV, Korisnik korisnik, List<StavkaRacuna> stavkaRacuna) {
-        this.datumIzdavanja = datumIzdavanja;
-        this.cenaBezPDV = cenaBezPDV;
-        this.PDV = PDV;
-        this.cenaSaPDV = cenaSaPDV;
-        this.korisnik = korisnik;
-        this.stavkaRacuna = stavkaRacuna;
+    	setDatumIzdavanja(datumIzdavanja);
+        setCenaBezPDV(cenaBezPDV);
+        setPDV(PDV);
+        setCenaSaPDV(cenaSaPDV);
+        setKorisnik(korisnik);
+        setStavkaRacuna(stavkaRacuna);
     }
     
     /**
@@ -68,7 +68,7 @@ public class Racun extends OpstiObjekat {
      */
     
     public Racun(Long id) {
-        this.id = id;
+        setId(id);
     }
 
     /**
@@ -88,6 +88,8 @@ public class Racun extends OpstiObjekat {
      */
     
     public void setId(Long id) {
+    	if(id < 0)
+            throw new IllegalArgumentException("Id ne sme biti negativan broj");
         this.id = id;
     }
 
@@ -108,7 +110,9 @@ public class Racun extends OpstiObjekat {
      */
     
     public void setDatumIzdavanja(Date datumIzdavanja) {
-        this.datumIzdavanja = datumIzdavanja;
+    	Date currentDate = new Date();
+        if (datumIzdavanja.after(currentDate)) 
+            throw new IllegalArgumentException("Datum ne sme biti posle danasnjeg!");
     }
 
     /**
@@ -128,6 +132,8 @@ public class Racun extends OpstiObjekat {
      */
     
     public void setCenaBezPDV(double cenaBezPDV) {
+    	if(cenaBezPDV < 0)
+            throw new IllegalArgumentException("Cena bez PDV-a ne sme biti negativan broj");
         this.cenaBezPDV = cenaBezPDV;
     }
 
@@ -148,6 +154,8 @@ public class Racun extends OpstiObjekat {
      */
     
     public void setPDV(double PDV) {
+    	if(PDV < 0)
+            throw new IllegalArgumentException("Pdv ne sme biti negativan broj");
         this.PDV = PDV;
     }
 
@@ -168,6 +176,8 @@ public class Racun extends OpstiObjekat {
      */
     
     public void setCenaSaPDV(double cenaSaPDV) {
+    	if(cenaSaPDV < 0)
+            throw new IllegalArgumentException("Cena sa Pdv-om ne sme biti negativan broj");
         this.cenaSaPDV = cenaSaPDV;
     }
 
@@ -188,6 +198,8 @@ public class Racun extends OpstiObjekat {
      */
     
     public void setKorisnik(Korisnik korisnik) {
+    	if(korisnik == null || korisnik.getId() == 0 || korisnik.getIme().equals("") || korisnik.getPrezime().equals("") || korisnik.getJMBG() == 0 || korisnik.getMesto() == null || korisnik.getDatumRodjenja() == null)
+    		throw new IllegalArgumentException("Korisnik mora biti inicijalizovan");
         this.korisnik = korisnik;
     }
 
@@ -208,6 +220,8 @@ public class Racun extends OpstiObjekat {
      */
     
     public void setStavkaRacuna(List<StavkaRacuna> stavkaRacuna) {
+    	if(stavkaRacuna.isEmpty())
+    		throw new IllegalArgumentException("Lista ne sme biti prazna");
         this.stavkaRacuna = stavkaRacuna;
     }
     

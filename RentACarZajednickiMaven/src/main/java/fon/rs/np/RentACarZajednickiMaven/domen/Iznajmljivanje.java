@@ -33,11 +33,11 @@ public class Iznajmljivanje extends OpstiObjekat {
      */
     
     public Iznajmljivanje(Long id, Korisnik korisnik, Vozilo vozilo, Date datumIznajmljivanja, Date datumVracanja) {
-        this.id = id;
-        this.korisnik = korisnik;
-        this.vozilo = vozilo;
-        this.datumIznajmljivanja = datumIznajmljivanja;
-        this.datumVracanja = datumVracanja;
+        setId(id);
+        setKorisnik(korisnik);
+        setVozilo(vozilo);
+        setDatumIznajmljivanja(datumIznajmljivanja);
+        setDatumVracanja(datumVracanja);
     }
     
     /**
@@ -51,10 +51,10 @@ public class Iznajmljivanje extends OpstiObjekat {
      */
     
     public Iznajmljivanje(Korisnik korisnik, Vozilo vozilo, Date datumIznajmljivanja, Date datumVracanja) {
-        this.korisnik = korisnik;
-        this.vozilo = vozilo;
-        this.datumIznajmljivanja = datumIznajmljivanja;
-        this.datumVracanja = datumVracanja;
+        setKorisnik(korisnik);
+        setVozilo(vozilo);
+        setDatumIznajmljivanja(datumIznajmljivanja);
+        setDatumVracanja(datumVracanja);
     }
 
     /**
@@ -67,9 +67,9 @@ public class Iznajmljivanje extends OpstiObjekat {
      */
     
     public Iznajmljivanje(Long id, Date datumIznajmljivanja, Date datumVracanja) {
-        this.id = id;
-        this.datumIznajmljivanja = datumIznajmljivanja;
-        this.datumVracanja = datumVracanja;
+        setId(id);
+        setDatumIznajmljivanja(datumIznajmljivanja);
+        setDatumVracanja(datumVracanja);
     }
 
     /**
@@ -96,6 +96,8 @@ public class Iznajmljivanje extends OpstiObjekat {
      */
     
     public void setId(Long id) {
+    	if(id < 0 )
+        	throw new IllegalArgumentException("Id ne sme biti negativan broj");
         this.id = id;
     }
 
@@ -116,6 +118,8 @@ public class Iznajmljivanje extends OpstiObjekat {
      */
     
     public void setKorisnik(Korisnik korisnik) {
+    	if(korisnik == null || korisnik.getId() == 0 || korisnik.getIme().equals("") || korisnik.getPrezime().equals("") || korisnik.getJMBG() == 0 || korisnik.getMesto() == null || korisnik.getDatumRodjenja() == null)
+    		throw new IllegalArgumentException("Korisnik mora biti inicijalizovan");
         this.korisnik = korisnik;
     }
 
@@ -136,6 +140,8 @@ public class Iznajmljivanje extends OpstiObjekat {
      */
     
     public void setVozilo(Vozilo vozilo) {
+    	if(vozilo == null || vozilo.getId() == 0 || vozilo.getMarka().equals("") || vozilo.getModel().equals("") || vozilo.getKategorijaVozila() == null || vozilo.getRegistarskiBroj().equals(""))
+    		throw new IllegalArgumentException("Vozilo mora biti inicijalizovano");
         this.vozilo = vozilo;
     }
 
@@ -156,6 +162,9 @@ public class Iznajmljivanje extends OpstiObjekat {
      */
     
     public void setDatumIznajmljivanja(Date datumIznajmljivanja) {
+    	Date currentDate = new Date();
+        if (datumIznajmljivanja.before(currentDate)) 
+            throw new IllegalArgumentException("Datum iznajmljivanja ne sme biti pre danasnjeg!");
         this.datumIznajmljivanja = datumIznajmljivanja;
     }
 
@@ -176,6 +185,8 @@ public class Iznajmljivanje extends OpstiObjekat {
      */
     
     public void setDatumVracanja(Date datumVracanja) {
+    	if(datumVracanja == null)
+    		throw new NullPointerException("Datum vracanja ne sme biti null");
         this.datumVracanja = datumVracanja;
     }
     
