@@ -10,11 +10,21 @@ import java.util.logging.Logger;
 
 /**
  * Klasa koja predstavlja entitet Mesto.
+ * Mesto se koristi za definisanje lokacija ili adresa u okviru sistema.
+ * Svako mesto ima jedinstveni identifikator i naziv.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class Mesto extends OpstiObjekat {
     
+	/**
+	 * Id mesta
+	 */
     private Long id;
+    /**
+     * Naziv mesta
+     */
     private String naziv;
 
     /**
@@ -49,6 +59,12 @@ public class Mesto extends OpstiObjekat {
         return hash;
     }
 
+    /**
+     * Poređenje objekata klase Mesto na osnovu naziva.
+     *
+     * @param obj objekat koji se poredi
+     * @return true ako su objekti jednaki, false inače
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -64,6 +80,12 @@ public class Mesto extends OpstiObjekat {
         return Objects.equals(this.naziv, other.naziv);
     }
     
+    /**
+     * Vraća string reprezentaciju objekta klase Mesto.
+     * String se sastoji od naziva mesta.
+     *
+     * @return string reprezentacija objekta
+     */
     @Override
     public String toString() {
         return getNaziv();
@@ -83,6 +105,7 @@ public class Mesto extends OpstiObjekat {
      * Postavlja identifikacioni broj mesta.
      *
      * @param id identifikacioni broj mesta
+     * @throws IllegalArgumentException ako je id negativan broj
      */
 
     
@@ -106,6 +129,7 @@ public class Mesto extends OpstiObjekat {
      * Postavlja naziv mesta.
      *
      * @param naziv naziv mesta
+     * @throws NullPointerException ako je naziv null
      */
     
     public void setNaziv(String naziv) {

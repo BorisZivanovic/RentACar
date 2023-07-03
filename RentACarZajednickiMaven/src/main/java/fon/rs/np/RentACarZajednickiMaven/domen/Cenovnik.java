@@ -8,13 +8,26 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Predstavlja objekat cenovnika.
+ * Predstavlja objekat cenovnika koji sadrži informacije o cenama i opisima usluga.
+ * Cenovnik se koristi za definisanje tarifa i pruža informacije o dostupnim uslugama i njihovim cenama.
+ * Svaki cenovnik ima svoj jedinstveni identifikator, naziv i opis.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class Cenovnik extends OpstiObjekat {
 	
+	/**
+	 * Id cenovnika
+	 */
     private Long id;
+    /**
+     * Naziv cenovnika
+     */
     private String naziv;
+    /**
+     * Opis cenovnika
+     */
     private String opis;
 
     /**
@@ -57,6 +70,7 @@ public class Cenovnik extends OpstiObjekat {
      * Postavlja identifikator cenovnika.
      *
      * @param id identifikator cenovnika
+     * @throws IllegalArgumentException ako je id negativan broj
      */
     
     public void setId(Long id) {
@@ -79,6 +93,7 @@ public class Cenovnik extends OpstiObjekat {
      * Postavlja naziv cenovnika.
      *
      * @param naziv naziv cenovnika
+     * @throws NullPointerException ako je naziv null
      */
     
     public void setNaziv(String naziv) {
@@ -101,6 +116,7 @@ public class Cenovnik extends OpstiObjekat {
      * Postavlja opis cenovnika.
      *
      * @param opis opis cenovnika
+     * @throws NullPointerException ako je opis null
      */
     
     public void setOpis(String opis) {

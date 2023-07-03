@@ -8,15 +8,36 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Predstavlja stavku cenovnika.
+ * Predstavlja stavku cenovnika u sistemu Rent-A-Car.
+ * Stavka cenovnika sadrži informacije o nazivu, opisu, ceni i pripadajućem cenovniku.
+ * Svaka stavka cenovnika ima jedinstveni identifikator (ID) koji je automatski generisan prilikom kreiranja.
+ * 
+ * Klasa StavkaCenovnika nasleđuje apstraktnu klasu OpstiObjekat i implementira metode za rad sa bazom podataka.
+ * Takođe, omogućava validaciju podataka prilikom postavljanja vrednosti za naziv, opis, cenu i cenovnik.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class StavkaCenovnika extends OpstiObjekat {
-    
+    /**
+     * Identifikator stavke cenovnika
+     */
     private Long id;
+    /**
+     * Naziv stavke cenovnika
+     */
     private String naziv;
+    /**
+     * Opis stavke cenovnika
+     */
     private String opis;
+    /**
+     * Cena stavke cenovnika
+     */
     private double cena;
+    /**
+     * Cenovnik za koji se vezuje stavka cenovnika
+     */
     private Cenovnik cenovnik;
 
     /**
@@ -77,6 +98,7 @@ public class StavkaCenovnika extends OpstiObjekat {
      * Postavlja ID stavke cenovnika.
      *
      * @param id ID stavke cenovnika
+     * @throws IllegalArgumentException ako je Id negativan broj
      */
     
     public void setId(Long id) {
@@ -99,9 +121,13 @@ public class StavkaCenovnika extends OpstiObjekat {
      * Postavlja naziv stavke cenovnika.
      *
      * @param naziv naziv stavke cenovnika
+     * @throws NullPointerException ako je naziv null
+     * @throws IllegalArgumentException ako je naziv kraći od 2 karaktera
      */
     
     public void setNaziv(String naziv) {
+    	if(naziv == null)
+    		throw new NullPointerException("naziv ne sme biti null");
     	if(naziv.length() < 2)
             throw new IllegalArgumentException("Naziv stavke cenovnika ne sme biti kraci od 2 karaktera");
         this.naziv = naziv;
@@ -121,9 +147,13 @@ public class StavkaCenovnika extends OpstiObjekat {
      * Postavlja opis stavke cenovnika.
      *
      * @param opis opis stavke cenovnika
+     * @throws NullPointerException ako je opis null
+     * @throws IllegalArgumentException ako je opis kraći od 2 karaktera
      */
     
     public void setOpis(String opis) {
+    	if(opis == null)
+    		throw new NullPointerException("opis ne sme biti null");
     	if(opis.length() < 2)
             throw new IllegalArgumentException("Opis stavke cenovnika ne sme biti kraci od 2 karaktera");
         this.opis = opis;
@@ -143,6 +173,7 @@ public class StavkaCenovnika extends OpstiObjekat {
      * Postavlja cenu stavke cenovnika.
      *
      * @param cena cena stavke cenovnika
+     * @throws IllegalArgumentException ako je cena manja ili jednaka nuli
      */
     
     public void setCena(double cena) {
@@ -165,6 +196,7 @@ public class StavkaCenovnika extends OpstiObjekat {
      * Postavlja cenovnik kojem stavka pripada.
      *
      * @param cenovnik cenovnik kojem stavka pripada
+     * @throws IllegalArgumentException ako je cenovnik null ili sadrži neispravne podatke
      */
     
     public void setCenovnik(Cenovnik cenovnik) {

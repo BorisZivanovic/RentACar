@@ -6,17 +6,42 @@ import java.util.List;
 
 /**
  * Klasa koja predstavlja račun u sistemu Rent-a-Car.
+ * Račun se koristi za izdavanje finansijskih dugovanja korisnika vezanih za iznajmljivanje vozila.
+ * Svaki račun ima jedinstven identifikator, datum izdavanja, cenu bez PDV-a, iznos PDV-a, cenu sa PDV-om,
+ * korisnika kome je izdat račun i listu stavki računa.
  * Nasleđuje apstraktnu klasu OpstiObjekat.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class Racun extends OpstiObjekat {
-	
+	/**
+	 * Identifikator racuna
+	 */
     private Long id;
+    /**
+     * Datum izdavanja racuna
+     */
     private Date datumIzdavanja;
+    /**
+     * Cena bez PDV-a za iznajmljeno vozilo
+     */
     private double cenaBezPDV;
+    /**
+     * PDV-a za iznajmljeno vozilo
+     */
     private double PDV;
+    /**
+     * Cena sa PDV-om za iznajmljeno vozilo
+     */
     private double cenaSaPDV;
+    /**
+     * Korisnik kome se izdaje racun
+     */
     private Korisnik korisnik;
+    /**
+     * Lista stavki racuna koje se nalaze u racunu
+     */
     private List<StavkaRacuna> stavkaRacuna;
 
     /**
@@ -85,6 +110,7 @@ public class Racun extends OpstiObjekat {
      * Setter za ID racuna.
      * 
      * @param id ID racuna
+     * @throws IllegalArgumentException Ako je pruženi ID negativan.
      */
     
     public void setId(Long id) {
@@ -107,6 +133,7 @@ public class Racun extends OpstiObjekat {
      * Setter za datum izdavanja racuna.
      * 
      * @param datumIzdavanja datum izdavanja racuna
+     * @throws IllegalArgumentException Ako je pruženi datum posle trenutnog datuma
      */
     
     public void setDatumIzdavanja(Date datumIzdavanja) {
@@ -130,6 +157,7 @@ public class Racun extends OpstiObjekat {
      * Setter za cenu bez PDV-a.
      * 
      * @param cenaBezPDV cena bez PDV-a
+     * @throws IllegalArgumentException Ako je cena bez PDV-a negativna.
      */
     
     public void setCenaBezPDV(double cenaBezPDV) {
@@ -152,6 +180,7 @@ public class Racun extends OpstiObjekat {
      * Setter za PDV.
      * 
      * @param PDV PDV
+     * @throws IllegalArgumentException Ako je iznos PDV-a negativan.
      */
     
     public void setPDV(double PDV) {
@@ -174,6 +203,7 @@ public class Racun extends OpstiObjekat {
      * Setter za cenu sa PDV-om.
      * 
      * @param cenaSaPDV cena sa PDV-om
+     * @throws IllegalArgumentException Ako je puna cena negativna.
      */
     
     public void setCenaSaPDV(double cenaSaPDV) {
@@ -196,6 +226,7 @@ public class Racun extends OpstiObjekat {
      * Setter za korisnika racuna.
      * 
      * @param korisnik korisnik racuna
+     * @throws IllegalArgumentException Ako je korisnik null ili ima nevažeće atribute.
      */
     
     public void setKorisnik(Korisnik korisnik) {
@@ -218,6 +249,7 @@ public class Racun extends OpstiObjekat {
      * Setter za listu stavki racuna.
      * 
      * @param stavkaRacuna lista stavki racuna
+     * @throws IllegalArgumentException ako je lista stavki prazna
      */
     
     public void setStavkaRacuna(List<StavkaRacuna> stavkaRacuna) {

@@ -8,18 +8,48 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Predstavlja stavku računa.
+ * Klasa koja predstavlja račun u sistemu Rent-a-Car.
+ * Račun se koristi za evidentiranje finansijskih transakcija vezanih za iznajmljivanje vozila.
+ * Svaki račun ima jedinstven identifikator, datum izdavanja, cenu bez PDV-a, iznos PDV-a, cenu sa PDV-om,
+ * korisnika koji je izdao račun i listu stavki računa.
+ * Nasleđuje apstraktnu klasu OpstiObjekat.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class StavkaRacuna extends OpstiObjekat {
 
+	/**
+	 * rbStavke racuna
+	 */
     private Long rbStavke;
+    /**
+     * Racun koji sadrzi stavke racuna
+     */
     private Racun racun;
+    /**
+     * iznos stavke racuna
+     */
     private double iznos;
+    /**
+     * PDV stavke racuna
+     */
     private double PDV;
+    /**
+     * iznos sa PDV-om stavke racuna
+     */
     private double iznosSaPDV;
+    /**
+     * Korisnik koji se vezuje za odredjenu stavku
+     */
     private Korisnik korisnik;
+    /**
+     * Izdato vozilo za koje se pravi stavi racuna
+     */
     private Vozilo vozilo;
+    /**
+     * Iznajmljvanje na osnovu kojeg se kreira stavka racuna
+     */
     private Iznajmljivanje iznajmljivanje;
 
     /**
@@ -83,12 +113,24 @@ public class StavkaRacuna extends OpstiObjekat {
     public StavkaRacuna() {
     }
 
+    /**
+     * Vraca String reprezentaciju klase StavkeRacuna.
+     * 
+     * @return  String koji sadrzi vrednosti svih atributa klase StavkeRacuna osim rbStavke i racun
+     */
     @Override
     public String toString() {
         return iznos + " " + PDV + " " + iznosSaPDV + " " + korisnik + " " + vozilo.getStatusVozila() + " "
                 + getIznajmljivanje().getDatumIznajmljivanja() + " " + getIznajmljivanje().getDatumVracanja();
     }
 
+    /**
+     * Proverava da li je ova stavka računa jednaka drugoj stavki računa.
+     * Stavke racuna su jednake ukoliko su njihova vozila jednaka.
+     *
+     * @param obj objekat sa kojim se vrši poređenje
+     * @return true ako su stavke računa jednake, false inače
+     */
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof StavkaRacuna)) {
@@ -115,6 +157,7 @@ public class StavkaRacuna extends OpstiObjekat {
      * Postavlja redni broj stavke.
      *
      * @param rbStavke redni broj stavke
+     * @throws IllegalArgumentException ako je redni broj stavke negativan
      */
     
     public void setRbStavke(Long rbStavke) {
@@ -158,6 +201,7 @@ public class StavkaRacuna extends OpstiObjekat {
      * Postavlja iznos stavke.
      *
      * @param iznos iznos stavke
+     * @throws IllegalArgumentException ako je iznos stavke nula ili negativan
      */
     
     public void setIznos(double iznos) {
@@ -180,6 +224,7 @@ public class StavkaRacuna extends OpstiObjekat {
      * Postavlja PDV stavke.
      *
      * @param PDV PDV stavke
+     * @throws IllegalArgumentException ako je PDV stavke nula ili negativan
      */
     
     public void setPDV(double PDV) {
@@ -202,6 +247,7 @@ public class StavkaRacuna extends OpstiObjekat {
      * Postavlja iznos sa PDV-om stavke.
      *
      * @param iznosSaPDV iznos sa PDV-om stavke
+     * @throws IllegalArgumentException ako je iznos sa PDV-om stavke nula ili negativan
      */
     
     public void setIznosSaPDV(double iznosSaPDV) {
@@ -224,6 +270,7 @@ public class StavkaRacuna extends OpstiObjekat {
      * Postavlja korisnika za koga je stavka vezana.
      *
      * @param korisnik korisnik za koga je stavka vezana
+     * @throws IllegalArgumentException ako korisnik nije u potpunosti inicijalizovan
      */
 
     public void setKorisnik(Korisnik korisnik) {
@@ -246,6 +293,7 @@ public class StavkaRacuna extends OpstiObjekat {
      * Postavlja vozilo koje je iznajmljeno u okviru stavke.
      *
      * @param vozilo vozilo koje je iznajmljeno u okviru stavke
+     * @throws IllegalArgumentException ako vozilo nije u potpunosti inicijalizovano
      */
     
     public void setVozilo(Vozilo vozilo) {
@@ -268,6 +316,7 @@ public class StavkaRacuna extends OpstiObjekat {
      * Postavlja iznajmljivanje koje je povezano sa stavkom.
      *
      * @param iznajmljivanje iznajmljivanje koje je povezano sa stavkom
+     * @throws IllegalArgumentException ako iznajmljivanje u potpunosti nije inicijalizovano
      */
     
     public void setIznajmljivanje(Iznajmljivanje iznajmljivanje) {
@@ -291,6 +340,11 @@ public class StavkaRacuna extends OpstiObjekat {
         return "id_racun, iznos, pdv, iznos_sa_pdv, id_korisnika, id_vozila, id_iznajmljivanja";
     }
 
+    /**
+     * Vraća vrednosti atributa stavke računa u obliku Stringa.
+     *
+     * @return niz vrednosti atributa stavke računa
+     */
     @Override
     public String dajVrednosti() {
         return "(" + getRacun().getId() + "," + getIznos() + "," + getPDV() + ","

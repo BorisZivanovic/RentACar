@@ -10,12 +10,25 @@ import java.util.logging.Logger;
 
 /**
  * Klasa predstavlja kategoriju vozila.
+ * Kategorija vozila se koristi za klasifikaciju vozila prema određenim karakteristikama.
+ * Svaka kategorija ima jedinstveni identifikator, naziv i cenu.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class KategorijaVozila extends OpstiObjekat {
 
+	/**
+	 * Id kategorije vozila
+	 */
     private Long id;
+    /**
+     * Naziv kategorije vozila
+     */
     private String naziv;
+    /**
+     * cena kategorije vozila
+     */
     private double cena;
 
     /**
@@ -59,6 +72,12 @@ public class KategorijaVozila extends OpstiObjekat {
     public KategorijaVozila() {
     }
 
+    /**
+     * Vraća string reprezentaciju objekta klase KategorijaVozila.
+     * String se sastoji od naziva kategorije vozila.
+     *
+     * @return string reprezentacija objekta
+     */
     @Override
     public String toString() {
         return getNaziv();
@@ -71,6 +90,13 @@ public class KategorijaVozila extends OpstiObjekat {
         return hash;
     }
 
+    /**
+     * Poređenje objekata klase KategorijaVozila.
+     * Dva objekta se smatraju jednakim ako imaju isti naziv.
+     *
+     * @param obj objekat koji se poredi
+     * @return true ako su objekti jednaki, false inače
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -100,6 +126,7 @@ public class KategorijaVozila extends OpstiObjekat {
      * Setter metoda za identifikator kategorije vozila.
      * 
      * @param id identifikator kategorije vozila
+     * @throws IllegalArgumentException ako je id negativan broj
      */
     
     public void setId(Long id) {
@@ -122,6 +149,7 @@ public class KategorijaVozila extends OpstiObjekat {
      * Setter metoda za naziv kategorije vozila.
      * 
      * @param naziv naziv kategorije vozila
+     * @throws NullPointerException ako je naziv null
      */
     
     public void setNaziv(String naziv) {
@@ -144,6 +172,7 @@ public class KategorijaVozila extends OpstiObjekat {
      * Setter metoda za cenu kategorije vozila.
      * 
      * @param cena cena kategorije vozila
+     * @throws IllegalArgumentException ako je cena negativan broj
      */
     
     public void setCena(double cena) {

@@ -11,17 +11,37 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Predstavlja entitet "Korisnik" koji ima informacije o korisniku sistema.
+ * Predstavlja entitet "Korisnik" koji ima informacije o korisniku sistema za iznajmljivanje automobila.
  * Nasleđuje apstraktnu klasu OpstiObjekat.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class Korisnik extends OpstiObjekat {
 
+	/**
+	 * Id korisnika
+	 */
     private Long id;
+    /**
+     * Ime korisnika
+     */
     private String ime;
+    /**
+     * Prezime korisnika
+     */
     private String prezime;
+    /**
+     * Jedinstveni maticni broj korisnika
+     */
     private Long JMBG;
+    /**
+     * Datum rodjenja korisnika
+     */
     private Date datumRodjenja;
+    /**
+     * Mesto odakle je korisnik
+     */
     private Mesto mesto;
 
     /**
@@ -97,6 +117,12 @@ public class Korisnik extends OpstiObjekat {
     public Korisnik() {
     }
 
+    /**
+     * Vraća string reprezentaciju trenutnog objekta.
+     * String se sastoji od imena i prezimena korisnika.
+     *
+     * @return String reprezentacija trenutnog objekta
+     */
     @Override
     public String toString() {
         return getIme() + " " + getPrezime();
@@ -109,6 +135,12 @@ public class Korisnik extends OpstiObjekat {
         return hash;
     }
 
+    /**
+     * Poređuje trenutni objekat sa drugim objektom, tacnije JMBG oba korisnika kako bi se utvrdilo da li su jednaki.
+     *
+     * @param o Objekat koji treba uporediti sa trenutnim objektom
+     * @return true ako su objekti jednaki, false inače
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -138,6 +170,7 @@ public class Korisnik extends OpstiObjekat {
      * Postavlja identifikacioni broj korisnika.
      *
      * @param id identifikacioni broj korisnika
+     * @throws IllegalArgumentException ako je id negativan broj
      */
     
     public void setId(Long id) {
@@ -160,6 +193,7 @@ public class Korisnik extends OpstiObjekat {
      * Postavlja ime korisnika.
      *
      * @param ime ime korisnika
+     * @throws NullPointerException ako je ime null
      */
     
     public void setIme(String ime) {
@@ -183,6 +217,7 @@ public class Korisnik extends OpstiObjekat {
      * Postavlja prezime korisnika.
      *
      * @param prezime prezime korisnika
+     * @throws NullPointerException ako je prezime null
      */
     
     public void setPrezime(String prezime) {
@@ -205,6 +240,7 @@ public class Korisnik extends OpstiObjekat {
      * Postavlja JMBG (Jedinstveni matični broj građana) korisnika.
      *
      * @param JMBG JMBG korisnika
+     * @throws IllegalArgumentException ako je JMBG negativan broj ili 0
      */
     
     public void setJMBG(Long JMBG) {
@@ -227,6 +263,8 @@ public class Korisnik extends OpstiObjekat {
      * Postavlja datum rođenja korisnika.
      *
      * @param datumRodjenja datum rođenja korisnika
+     * @throws NullPointerException ako je datum rodjenja null
+     * @throws IllegalArgumentException ako je datum rodjenja nakon sadasnjeg
      */
     
     public void setDatumRodjenja(Date datumRodjenja) {
@@ -252,6 +290,7 @@ public class Korisnik extends OpstiObjekat {
      * Postavlja mesto prebivališta korisnika.
      *
      * @param mesto mesto prebivališta korisnika
+     * @throws IllegalArgumentException ako mesto nije u potpunosti inicijalizovano
      */
     
     public void setMesto(Mesto mesto) {

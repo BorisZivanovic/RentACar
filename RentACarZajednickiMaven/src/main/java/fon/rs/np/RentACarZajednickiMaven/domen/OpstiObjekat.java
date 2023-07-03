@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 /**
  * Apstraktna klasa koja predstavlja opšti objekat.
  * Definiše apstraktne metode koje treba implementirati u podklasama.
+ * 
+ * @author Boris Zivanovic
  */
 
 public abstract class OpstiObjekat implements Serializable {

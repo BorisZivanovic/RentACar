@@ -10,15 +10,35 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Predstavlja objekat iznajmljivanja.
+ * Predstavlja objekat iznajmljivanja u sistemu Rent-a-Car.
+ * 
+ * Objekat iznajmljivanja sadrži informacije o korisniku koji je iznajmio vozilo, iznajmljenom vozilu,
+ * datumu iznajmljivanja i datumu vraćanja vozila.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class Iznajmljivanje extends OpstiObjekat {
 
+	/**
+	 * Identifikator iznajmljivanja
+	 */
     private Long id;
+    /**
+     * Korisnik koji je iznajmio vozilo
+     */
     private Korisnik korisnik;
+    /**
+     * Iznajmljeno vozilo
+     */
     private Vozilo vozilo;
+    /**
+     * Datum iznajmljivanja vozila
+     */
     private Date datumIznajmljivanja;
+    /**
+     * Datum vracanja vozila
+     */
     private Date datumVracanja;
 
     /**
@@ -93,6 +113,7 @@ public class Iznajmljivanje extends OpstiObjekat {
      * Postavlja identifikator iznajmljivanja.
      *
      * @param id identifikator iznajmljivanja
+     * @throws IllegalArgumentException ako je Id negativan broj
      */
     
     public void setId(Long id) {
@@ -115,6 +136,7 @@ public class Iznajmljivanje extends OpstiObjekat {
      * Postavlja korisnika koji iznajmljuje vozilo.
      *
      * @param korisnik korisnik koji iznajmljuje vozilo
+     * @throws IllegalArgumentException ako korisnik nije u potpunosti inicijalizovan
      */
     
     public void setKorisnik(Korisnik korisnik) {
@@ -137,6 +159,7 @@ public class Iznajmljivanje extends OpstiObjekat {
      * Postavlja vozilo koje se iznajmljuje.
      *
      * @param vozilo vozilo koje se iznajmljuje
+     * @throws IllegalArgumentException ako vozilo nije u potpunosti inicijalizovano
      */
     
     public void setVozilo(Vozilo vozilo) {
@@ -159,6 +182,7 @@ public class Iznajmljivanje extends OpstiObjekat {
      * Postavlja datum iznajmljivanja.
      *
      * @param datumIznajmljivanja datum iznajmljivanja
+     * @throws IllegalArgumentException ako je datum iznajmljivanja pre sadasnjeg datuma
      */
     
     public void setDatumIznajmljivanja(Date datumIznajmljivanja) {
@@ -182,6 +206,7 @@ public class Iznajmljivanje extends OpstiObjekat {
      * Postavlja datum vraćanja vozila.
      *
      * @param datumVracanja datum vraćanja vozila
+     * @throws NullPointerException ako je datum vracanja null
      */
     
     public void setDatumVracanja(Date datumVracanja) {

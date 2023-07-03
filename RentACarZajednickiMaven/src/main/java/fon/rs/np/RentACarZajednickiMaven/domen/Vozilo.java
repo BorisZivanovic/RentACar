@@ -9,16 +9,39 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Predstavlja vozilo.
+ * Predstavlja vozilo koje se može iznajmiti u okviru rent-a-car sistema.
+ * Svako vozilo ima jedinstveni identifikator, registarski broj, marku, model, status i kategoriju.
+ * Vozilo može biti u jednom od mogućih statusa (npr. slobodno, iznajmljeno).
+ * Kategorija vozila određuje tip vozila (npr. limuzina, hecbek, karavan, ...) i ima svoju cenu.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class Vozilo extends OpstiObjekat {
 
+	/**
+	 * Identifikator vozila
+	 */
     private Long id;
+    /**
+     * Registarski broj vozila
+     */
     private String registarskiBroj;
+    /**
+     * Marka vozila
+     */
     private String marka;
+    /**
+     * Model vozila
+     */
     private String model;
+    /**
+     * Status vozila
+     */
     private StatusVozila statusVozila;
+    /**
+     * Kategorija vozila
+     */
     private KategorijaVozila kategorijaVozila;
 
     /**
@@ -87,6 +110,12 @@ public class Vozilo extends OpstiObjekat {
         setRegistarskiBroj(registarskiBroj);
     }
 
+    /**
+     * Vraća tekstualnu reprezentaciju vozila.
+     * Tekstualna reprezentacija je registarski broj vozila.
+     *
+     * @return registarski broj vozila
+     */
     @Override
     public String toString() {
         return registarskiBroj;
@@ -99,6 +128,13 @@ public class Vozilo extends OpstiObjekat {
         return hash;
     }
 
+    /**
+     * Proverava da li je dato vozilo jednako ovom vozilu.
+     * Vozila su jednaka ako imaju isti registarski broj.
+     *
+     * @param obj objekat koji se poređuje sa ovim vozilom
+     * @return true ako su vozila jednaka, false inače
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -135,6 +171,7 @@ public class Vozilo extends OpstiObjekat {
      * Postavlja ID vozila.
      *
      * @param id ID vozila
+     * @throws IllegalArgumentException ako je ID vozila negativan broj
      */
     
     public void setId(Long id) {
@@ -157,6 +194,7 @@ public class Vozilo extends OpstiObjekat {
      * Postavlja marku vozila.
      *
      * @param marka marka vozila
+     * @throws NullPointerException ako je marka vozila null
      */
     
     public void setMarka(String marka) {
@@ -179,6 +217,7 @@ public class Vozilo extends OpstiObjekat {
      * Postavlja model vozila.
      *
      * @param model model vozila
+     * @throws NullPointerException ako je model vozila null
      */
     
     public void setModel(String model) {
@@ -221,6 +260,7 @@ public class Vozilo extends OpstiObjekat {
      * Postavlja kategoriju vozila.
      *
      * @param kategorijaVozila kategorija vozila
+     * @throws IllegalArgumentException ako je kategorija vozila neispravno inicijalizovana, tacnije ako nije u potpunosti
      */
     
     public void setKategorijaVozila(KategorijaVozila kategorijaVozila) {
@@ -243,6 +283,7 @@ public class Vozilo extends OpstiObjekat {
      * Postavlja registarski broj vozila.
      *
      * @param registarskiBroj registarski broj vozila
+     * @throws NullPointerException ako je registarski broj vozila null
      */
     
     public void setRegistarskiBroj(String registarskiBroj) {
