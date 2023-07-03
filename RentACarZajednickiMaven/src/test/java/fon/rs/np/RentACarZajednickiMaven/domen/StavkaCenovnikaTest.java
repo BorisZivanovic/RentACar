@@ -76,12 +76,26 @@ class StavkaCenovnikaTest {
     }
 
     @Test
+    void setNaziv_KraciNull() {
+        StavkaCenovnika stavka = new StavkaCenovnika();
+
+        assertThrows(NullPointerException.class, () -> stavka.setNaziv(null));
+    }
+    
+    @Test
     void setNaziv_KraciOdDvaKaraktera_Izuzetak() {
         StavkaCenovnika stavka = new StavkaCenovnika();
 
         assertThrows(IllegalArgumentException.class, () -> stavka.setNaziv("S"));
     }
 
+    @Test
+    void setOpis_KraciNull() {
+        StavkaCenovnika stavka = new StavkaCenovnika();
+
+        assertThrows(NullPointerException.class, () -> stavka.setNaziv(null));
+    }
+    
     @Test
     void setOpis_KraciOdDvaKaraktera_Izuzetak() {
         StavkaCenovnika stavka = new StavkaCenovnika();
