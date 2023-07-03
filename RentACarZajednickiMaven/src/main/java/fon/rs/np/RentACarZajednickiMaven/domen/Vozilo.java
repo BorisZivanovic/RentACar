@@ -224,8 +224,8 @@ public class Vozilo extends OpstiObjekat {
      */
     
     public void setKategorijaVozila(KategorijaVozila kategorijaVozila) {
-    	if(kategorijaVozila == null )
-    		throw new NullPointerException("Kategorija vozila mora biti inicijalizovana");
+    	if(kategorijaVozila == null || kategorijaVozila.getId() == 0 || kategorijaVozila.getNaziv().equals("") || kategorijaVozila.getCena() <= 0)
+    		throw new IllegalArgumentException("Kategorija vozila mora biti inicijalizovana");
         this.kategorijaVozila = kategorijaVozila;
     }
 
