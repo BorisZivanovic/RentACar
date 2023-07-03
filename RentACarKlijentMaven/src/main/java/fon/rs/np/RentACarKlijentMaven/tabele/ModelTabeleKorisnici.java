@@ -9,6 +9,8 @@ import javax.swing.table.AbstractTableModel;
 /**
  * Model tabele za prikaz korisnika.
  * Klasa nasleđuje apstraktnu klasu AbstractTableModel i implementira njene apstraktne metode.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class ModelTabeleKorisnici extends AbstractTableModel {

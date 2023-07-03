@@ -8,6 +8,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Apstraktna sistemska operacija koju sve konkretne sistemske operacije nasleđuju.
+ * 
+ * @author Boris Zivanovic
  */
 
 public abstract class OpstaSistemskaOperacija {

@@ -14,6 +14,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Klasa predstavlja formu za vraćanje iznajmljenih vozila.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class VratiKolaForma extends javax.swing.JDialog {

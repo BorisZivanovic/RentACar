@@ -10,6 +10,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Sistemska operacija za čuvanje podataka o vozilu.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class SacuvajVozilo extends OpstaSistemskaOperacija {

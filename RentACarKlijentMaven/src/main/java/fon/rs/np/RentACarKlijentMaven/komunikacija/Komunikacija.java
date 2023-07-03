@@ -13,6 +13,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Zahtev;
 /**
  * Klasa Komunikacija omogućava komunikaciju sa serverom putem soketa.
  * Implementira Singleton obrazac dizajna kako bi se obezbedila samo jedna instanca klase za celu aplikaciju.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class Komunikacija {

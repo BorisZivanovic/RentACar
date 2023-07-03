@@ -9,6 +9,8 @@ import java.io.Serializable;
  * Može se koristiti za prenos objekata sa servera na klijenta i obrnuto.</p>
  * <p> Klasa implementira interfejs Serializable, sto omogucava da se objekti klase Response serijalizuju i deserijlizuju.
  * Sto je neophodno, ukoliko koristimo prenos podataka izmedju procesa, putem soketa.</p>
+ * 
+ * @author Boris Zivanovic
  */
 
 public class Odgovor implements Serializable {

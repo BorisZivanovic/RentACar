@@ -9,6 +9,8 @@ import java.util.logging.Logger;
 
 /**
  * Klasa koja predstavlja broker za pristup bazi podataka.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class DbBroker {

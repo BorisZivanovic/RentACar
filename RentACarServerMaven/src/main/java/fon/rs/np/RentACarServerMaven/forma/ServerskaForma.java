@@ -5,6 +5,8 @@ import fon.rs.np.RentACarServerMaven.server.PokreniServer;
 
 /**
  * Klasa koja predstavlja serversku formu.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class ServerskaForma extends javax.swing.JFrame {

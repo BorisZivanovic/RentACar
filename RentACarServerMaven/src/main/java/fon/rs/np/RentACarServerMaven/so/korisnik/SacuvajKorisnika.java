@@ -10,6 +10,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Sistemska operacija za čuvanje korisnika.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class SacuvajKorisnika extends OpstaSistemskaOperacija {

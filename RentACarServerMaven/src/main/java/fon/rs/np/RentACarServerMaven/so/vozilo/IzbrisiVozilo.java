@@ -10,6 +10,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Sistemska operacija za brisanje vozila.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class IzbrisiVozilo extends OpstaSistemskaOperacija{

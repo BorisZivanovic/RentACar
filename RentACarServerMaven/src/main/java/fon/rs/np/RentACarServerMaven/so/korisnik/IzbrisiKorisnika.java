@@ -10,6 +10,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Sistemska operacija za brisanje korisnika iz sistema.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class IzbrisiKorisnika extends OpstaSistemskaOperacija {

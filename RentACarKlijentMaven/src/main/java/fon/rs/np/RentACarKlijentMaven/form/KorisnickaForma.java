@@ -21,6 +21,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
  * Takođe, korisnik može uneti nove podatke i sačuvati ih kao novog korisnika.
  * Forma takođe omogućava unos podataka kao što su ime, prezime, JMBG, datum rođenja i mesto prebivališta korisnika.
  * Podaci se validiraju pre njihovog čuvanja u sistemu.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class KorisnickaForma extends javax.swing.JDialog {

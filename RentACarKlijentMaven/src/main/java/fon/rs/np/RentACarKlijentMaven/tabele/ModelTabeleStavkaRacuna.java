@@ -10,6 +10,8 @@ import javax.swing.table.AbstractTableModel;
 /**
  * Model tabele za prikaz stavki računa.
  * Klasa nasleđuje apstraktnu klasu AbstractTableModel i implementira njene apstraktne metode.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class ModelTabeleStavkaRacuna extends AbstractTableModel {

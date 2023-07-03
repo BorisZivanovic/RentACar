@@ -26,6 +26,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Zahtev;
  * @see Odgovor
  * @see Thread
  * 
+ * 
+ * @author Boris Zivanovic
  */
 
 public class KlijentskaNit extends Thread {

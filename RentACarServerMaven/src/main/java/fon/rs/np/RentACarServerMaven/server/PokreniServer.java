@@ -9,6 +9,8 @@ import java.util.logging.Logger;
 
 /**
  * Klasa koja predstavlja server i omogućava pokretanje servera i prihvatanje klijentskih konekcija.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class PokreniServer extends Thread {

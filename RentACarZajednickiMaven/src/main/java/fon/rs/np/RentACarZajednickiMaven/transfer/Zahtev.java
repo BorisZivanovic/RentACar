@@ -13,6 +13,8 @@ import fon.rs.np.RentACarZajednickiMaven.operacija.Operacija;
  * Koristi se za komunikaciju između klijenta i servera u sistemu Rent-a-Car.</p>
  * <p>Klasa implementira interfejs Serializable, što omogućava da se objekti klase Request serijalizuju i deserijalizuju.
  * Što je neophodno, jer se koristi prenos podataka između procesa, putem soketa. </p>
+ * 
+ * @author Boris Zivanovic
  */
 
 public class Zahtev implements Serializable {

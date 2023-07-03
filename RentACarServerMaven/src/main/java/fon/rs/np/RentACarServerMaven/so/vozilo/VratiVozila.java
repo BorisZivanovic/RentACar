@@ -11,6 +11,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Sistemska operacija za vraćanje svih vozila.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class VratiVozila extends OpstaSistemskaOperacija{

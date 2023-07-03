@@ -19,6 +19,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Zahtev;
  * Klasa Kontroler predstavlja glavni kontroler aplikacije.
  * Sadrži metode koje komuniciraju sa serverom putem objekta Komunikacija,
  * kao i metode za manipulaciju podacima i prikaz korisničkog interfejsa.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class Kontroler {

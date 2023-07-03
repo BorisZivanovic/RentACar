@@ -11,6 +11,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Sistemska operacija za vraćanje liste mesta.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class VratiMesta extends OpstaSistemskaOperacija {

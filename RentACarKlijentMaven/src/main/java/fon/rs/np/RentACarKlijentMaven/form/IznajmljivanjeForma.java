@@ -20,6 +20,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Klasa predstavlja formu za iznajmljivanje vozila.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class IznajmljivanjeForma extends javax.swing.JDialog {

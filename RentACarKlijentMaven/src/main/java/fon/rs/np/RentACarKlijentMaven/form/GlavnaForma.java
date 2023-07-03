@@ -24,6 +24,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Zahtev;
  * Ova klasa predstavlja glavni prozor aplikacije i omogućava korisniku interakciju sa funkcionalnostima sistema.
  * Korisnik može pregledati dostupna vozila, iznajmiti vozilo, vratiti iznajmljeno vozilo, dodavati, izmenjivati i brisati vozila iz sistema.
  * Takođe, korisnik može pregledati informacije o korisniku koji je trenutno prijavljen.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class GlavnaForma extends javax.swing.JFrame {

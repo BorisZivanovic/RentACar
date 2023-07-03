@@ -10,6 +10,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Sistemska operacija za izmenu podataka o korisniku.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class IzmeniKorisnika extends OpstaSistemskaOperacija {

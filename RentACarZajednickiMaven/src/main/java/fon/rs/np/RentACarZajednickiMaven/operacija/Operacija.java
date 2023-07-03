@@ -2,6 +2,8 @@ package fon.rs.np.RentACarZajednickiMaven.operacija;
 
 /**
  * Enumeracija koja predstavlja operacije u sistemu Rent-a-Car.
+ * 
+ * @author Boris Zivanovic
  */
 
 public enum Operacija {

@@ -12,6 +12,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Sistemska operacija za iznajmljivanje vozila.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class IznajmiVozilo extends OpstaSistemskaOperacija {

@@ -11,6 +11,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Sistemska operacija za vraćanje liste iznajmljenih vozila.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class VratiIznajmljeno extends OpstaSistemskaOperacija {

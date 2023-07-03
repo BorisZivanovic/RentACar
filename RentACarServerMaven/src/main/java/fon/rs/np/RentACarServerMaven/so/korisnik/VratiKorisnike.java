@@ -12,6 +12,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Sistemska operacija za vraćanje liste korisnika.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class VratiKorisnike extends OpstaSistemskaOperacija {

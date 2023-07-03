@@ -10,6 +10,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Sistemska operacija koja vraća sve kategorije vozila iz baze podataka.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class VratiKategorijeVozila extends OpstaSistemskaOperacija {

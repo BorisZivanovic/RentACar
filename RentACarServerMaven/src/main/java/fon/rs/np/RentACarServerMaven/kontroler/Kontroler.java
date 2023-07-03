@@ -18,6 +18,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Kontroler klasa koja upravlja poslovnim logikama servera.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class Kontroler {

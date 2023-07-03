@@ -11,6 +11,8 @@ import fon.rs.np.RentACarZajednickiMaven.transfer.Odgovor;
 
 /**
  * Sistemska operacija koja vraća sve cenovnike iz baze podataka.
+ * 
+ * @author Boris Zivanovic
  */
 
 public class VratiCenovnike extends OpstaSistemskaOperacija{
